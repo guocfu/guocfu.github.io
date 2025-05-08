@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=9217&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Git 入门 教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1\nGit 远程仓库(Github) | 菜鸟教程\n">
+<title>测试</title>
+
+<link rel='canonical' href='http://localhost:9217/p/%E6%B5%8B%E8%AF%95/'>
+
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="测试">
+<meta property='og:description' content="Git 入门 教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1\nGit 远程仓库(Github) | 菜鸟教程\n">
+<meta property='og:url' content='http://localhost:9217/p/%E6%B5%8B%E8%AF%95/'>
+<meta property='og:site_name' content='Lancelot'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-05-08T18:18:59&#43;08:00'/><meta property='article:modified_time' content='2025-05-08T18:18:59&#43;08:00'/>
+<meta name="twitter:title" content="测试">
+<meta name="twitter:description" content="Git 入门 教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1\nGit 远程仓库(Github) | 菜鸟教程\n">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_7d62ae36670286bf.jpg" width="300"
+                            height="301" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Lancelot</a></h1>
+            <h2 class="site-description">欢迎来到我的博客</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://space.bilibili.com/313581472?spm_id_from=333.1007.0.0'
+                        target="_blank"
+                        title="Bilibili"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-brand-bilibili"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 10a4 4 0 0 1 4 -4h10a4 4 0 0 1 4 4v6a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-6z" /><path d="M8 3l2 3" /><path d="M16 3l-2 3" /><path d="M9 13v-2" /><path d="M15 11v2" /></svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/guocfu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://twitter.com'
+                        target="_blank"
+                        title="Twitter"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-twitter" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M22 4.01c-1 .49 -1.98 .689 -3 .99c-1.121 -1.265 -2.783 -1.335 -4.38 -.737s-2.643 2.06 -2.62 3.737v1c-3.245 .083 -6.135 -1.395 -8 -4c0 0 -4.182 7.433 4 11c-1.872 1.247 -3.739 2.088 -6 2c3.308 1.803 6.913 2.423 10.034 1.517c3.58 -1.04 6.522 -3.723 7.651 -7.742a13.84 13.84 0 0 0 .497 -3.753c-.002 -.249 1.51 -2.772 1.818 -4.013z" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>主页</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>归档</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>搜索</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>友情链接</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>暗色模式</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#初始化本地仓库">初始化本地仓库</a></li>
+    <li><a href="#常用命令">常用命令</a>
+      <ol>
+        <li><a href="#fg-命令">fg 命令</a></li>
+        <li><a href="#log-命令">log 命令</a></li>
+        <li><a href="#reset-命令">reset 命令</a></li>
+        <li><a href="#删除文件">删除文件</a></li>
+        <li><a href="#diff-命令">diff 命令</a></li>
+      </ol>
+    </li>
+    <li><a href="#分支">分支</a>
+      <ol>
+        <li><a href="#操作分支">操作分支</a></li>
+      </ol>
+    </li>
+    <li><a href="#远程库">远程库</a>
+      <ol>
+        <li><a href="#克隆远程库"><strong>克隆远程库</strong></a></li>
+        <li><a href="#查看远程库">查看远程库</a></li>
+        <li><a href="#添加远程仓库">添加远程仓库</a>
+          <ol>
+            <li><a href="#查看远程仓库">查看远程仓库</a></li>
+            <li><a href="#远程仓库的重命名与移除">远程仓库的重命名与移除</a></li>
+          </ol>
+        </li>
+        <li><a href="#远程库修改的拉取操作">远程库修改的拉取操作</a>
+          <ol>
+            <li><a href="#fetchmerge-操作">fetch+merge 操作</a></li>
+            <li><a href="#pull-操作">pull 操作</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#省略">省略</a></li>
+    <li><a href="#ssh-免密登录">SSH 免密登录</a></li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E6%B5%8B%E8%AF%95/">测试</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">2025-05-08</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 5 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="git-入门">Git 入门
+</h1><p>教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1</p>
+<blockquote>
+<p><a class="link" href="https://www.runoob.com/git/git-remote-repo.html"  target="_blank" rel="noopener"
+    >Git 远程仓库(Github) | 菜鸟教程</a></p></blockquote>
+<p><code>Ctrl+Alt+G</code> 打开 git bash</p>
+<h2 id="初始化本地仓库">初始化本地仓库
+</h2><ol>
+<li>本地创建一个文件夹 <code>GitResp</code> 保存仓库（非必须）</li>
+<li>Git Bash Here  (Ctrl + 滑轮 调整字体大小 / Options 设置)</li>
+</ol>
+<p>git 命令与 linux 相同</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">git</span> <span class="o">--</span><span class="n">version</span>
+</span></span><span class="line"><span class="cl"><span class="n">clear</span> <span class="c1"># 清屏</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>
+<p>设置签名：
+设置用户名和邮箱：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&#34;***&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">use</span><span class="o">.</span><span class="n">email</span> <span class="s2">&#34;***&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>本次仓库初始化
+<code>git init</code> 生成 <code>.git</code> 隐藏文件夹</p>
+<p><strong>.git 文件夹下文件不要轻易修改</strong></p>
+</li>
+</ol>
+<h2 id="常用命令">常用命令
+</h2><ol>
+<li>在工作区创建一个文件</li>
+<li>将文件提交到暂存区 <code>git add &lt;filename&gt;</code></li>
+<li>将暂存区提交到本地库 <code>git commit -m &quot;comment&quot; &lt;filename&gt;</code></li>
+<li><code>git status</code> 查看缓存区状态 （修改本地文件需要用 add, commit 命令更新本地库）</li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>不放在工作区的文件，git 不进行管理</li>
+<li>即使放在工作区的文件，<strong>必须通过 add，commit 命令操作将内容提交到本地库 git 才能管理</strong></li>
+</ol>
+<h3 id="fg-命令">fg 命令
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># Ctrl+Z挂起作业</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># jobs查看挂起的作业</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># fg 将后台的作业切换到前台</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ <span class="nb">jobs</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>1<span class="o">]</span>+  Stopped                 vim Git学习笔记.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ <span class="nb">fg</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">vim Git学习笔记.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">[</span>1<span class="o">]</span>+  Stopped                 vim Git学习笔记.md
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Shinelon@DESKTOP-69E8U3H MINGW64 /e/坚果云/Notes/Git
+</span></span><span class="line"><span class="cl">$ <span class="nb">fg</span>
+</span></span><span class="line"><span class="cl">vim Git学习笔记.md
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="log-命令">log 命令
+</h3><p>方法 1：<code>git log</code> 日志 (q 退出)
+太多时分页(b 上一页)</p>
+<p>方法 2：<code>git log --pretty=oneline</code></p>
+<p>方法 3： <code>git log --online</code>  (更简洁)</p>
+<p>方法 4：<code>git reflog</code>
+多了信息：HEAD@{number} &ndash; 指针回到这个历史版本需要多少步</p>
+<h3 id="reset-命令">reset 命令
+</h3><p>前进或后退历史版本</p>
+<ol>
+<li>
+<p><code>git reset --hard &lt;hash&gt;</code> (hash 在 HEAD@前)</p>
+<p>本地库指针移动的同时，<strong>重置暂存区和工作区</strong></p>
+</li>
+<li>
+<p><code>git reset --mixed &lt;hash&gt;</code>
+本地库指针移动的同时，<strong>重置暂存区，工作区不变</strong></p>
+</li>
+<li>
+<p><code>git reset --soft &lt;hash&gt;</code>
+本地库指针移动的，<strong>暂存区和工作区都不动</strong></p>
+</li>
+</ol>
+<p>常用 <code>hard</code> 参数</p>
+<h3 id="删除文件">删除文件
+</h3><ul>
+<li>删除工作区中的 test2.txt  <code>rm test2.txt</code>，或者选中文件手动删除</li>
+<li>将删除操作同步到暂存区 <code>git rm test2.txt</code></li>
+<li>将删除操作同步到本地库 <code>git commit -m '删除test2.txt文件'</code></li>
+<li>找回本地库中删除的文件，实际上就是切换到历史版本</li>
+</ul>
+<p>找回 <strong>暂存区删除</strong> 的文件：</p>
+<ul>
+<li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="n">git</span> <span class="n">rm</span> <span class="n">test2</span><span class="o">.</span><span class="n">txt</span>
+</span></span><span class="line"><span class="cl"><span class="n">git</span> <span class="n">add</span> <span class="n">test2</span><span class="o">.</span><span class="n">txt</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>恢复暂存区的数据：<code>git reset --hard &lt;HEAD_hash&gt;</code>    /  <code>git reset --hard HEAD</code></p>
+</li>
+</ul>
+<h3 id="diff-命令">diff 命令
+</h3><ul>
+<li><strong>比较工作区和暂存区文件</strong>
+更改工作区 test.txt 文件后，比较工作区和暂存区 test.txt 文件：<code>git diff test.txt</code>
+比较工作区和暂存区所有文件差异：<code>git diff</code></li>
+<li><strong>比较暂存区和本地库文件</strong>
+通过 <strong>HEAD 指针</strong> 比较：<code>git diff HEAD test.txt</code><br>
+通过 <strong>hash 索引</strong> 比较：<code>git diff &lt;hash&gt; test.txt</code></li>
+</ul>
+<h2 id="分支">分支
+</h2><p>在版本控制中，使用多条线同时推进多个任务，这里面的多条线就是多个分支。</p>
+<p><img src="C:%5cUsers%5cShinelon%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210417105237295.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="image-20210417105237295"
+	
+	
+></p>
+<p>同时多个分支可以并行开发，互不影响，提高开发效率</p>
+<p>如果有一个分支功能开发失败，可以直接删除该分支</p>
+<h3 id="操作分支">操作分支
+</h3><ul>
+<li>查看分支：<code>git branch -v</code></li>
+<li>创建分支：<code>git branch &lt;branchname&gt;</code> (当前所在分支由*表示)</li>
+<li>切换分支：<code>git checkout &lt;branchname&gt;</code></li>
+</ul>
+<p>将 branch01 分支 <strong>合并到主分支</strong> 中：</p>
+<ul>
+<li>切换到主分支中 <code>git checkout master</code></li>
+<li><code>git merge branch01**</code></li>
+</ul>
+<p><strong>在同一个文件的同一个位置修改时，会 <font color=blue> 出现冲突 </font> 问题 <font color=red>（mater|MERGING)</font></strong></p>
+<p>解决：认为决定，留下需要的部分</p>
+<p><code>git add &lt;filename&gt;</code>
+<code>git commit -m &quot;解决了冲突问题&quot;</code>  (<strong>不能带文件名</strong>)</p>
+<h2 id="远程库">远程库
+</h2><h3 id="克隆远程库"><strong>克隆远程库</strong>
+</h3><p><code>git clone &lt;远程库地址&gt;</code></p>
+<p>克隆作用：</p>
+<ul>
+<li>初始化本地仓库</li>
+<li>将远程库内容完整克隆到本地</li>
+<li>替我们创建远程库别名(<code>origin</code>)</li>
+</ul>
+<h3 id="查看远程库">查看远程库
+</h3><p><code>git remote -v</code>：显示需要读写远程仓库使用的 Git 保存的简写与其对应的 URL</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote -v
+</span></span><span class="line"><span class="cl">bakkdoor  https://github.com/bakkdoor/grit <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">bakkdoor  https://github.com/bakkdoor/grit <span class="o">(</span>push<span class="o">)</span>
+</span></span><span class="line"><span class="cl">cho45     https://github.com/cho45/grit <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">cho45     https://github.com/cho45/grit <span class="o">(</span>push<span class="o">)</span>
+</span></span><span class="line"><span class="cl">defunkt   https://github.com/defunkt/grit <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">defunkt   https://github.com/defunkt/grit <span class="o">(</span>push<span class="o">)</span>
+</span></span><span class="line"><span class="cl">koke      git://github.com/koke/grit.git <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">koke      git://github.com/koke/grit.git <span class="o">(</span>push<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin    git@github.com:mojombo/grit.git <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin    git@github.com:mojombo/grit.git <span class="o">(</span>push<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="添加远程仓库">添加远程仓库
+</h3><p>运行 <code>git remote add &lt;shortname&gt; &lt;url&gt;</code> 添加一个新的远程 Git 仓库，同时指定一个方便使用的简写：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote
+</span></span><span class="line"><span class="cl">origin
+</span></span><span class="line"><span class="cl">$ git remote add pb https://github.com/paulboone/ticgit
+</span></span><span class="line"><span class="cl">$ git remote -v
+</span></span><span class="line"><span class="cl">origin	https://github.com/schacon/ticgit <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin	https://github.com/schacon/ticgit <span class="o">(</span>push<span class="o">)</span>
+</span></span><span class="line"><span class="cl">pb	https://github.com/paulboone/ticgit <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">pb	https://github.com/paulboone/ticgit <span class="o">(</span>push<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>现在你可以在命令行中使用字符串 <code>pb</code> 来代替整个 URL。 例如，如果你想拉取 Paul 的仓库中有但你没有的信息，可以运行 <code>git fetch pb</code>.</p>
+<p>如果你使用 <code>clone</code> 命令克隆了一个仓库，命令会自动将其添加为远程仓库并默认以 “origin” 为简写。 所以，<code>git fetch origin</code> 会抓取克隆（或上一次抓取）后新推送的所有工作</p>
+<h4 id="查看远程仓库">查看远程仓库
+</h4><p>如果想要查看某一个远程仓库的更多信息，可以使用 <code>git remote show &lt;remote&gt;</code> 命令。 如果想以一个特定的缩写名运行这个命令，例如 <code>origin</code>，会得到像下面类似的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote show origin
+</span></span><span class="line"><span class="cl">* remote origin
+</span></span><span class="line"><span class="cl">  Fetch URL: https://github.com/schacon/ticgit
+</span></span><span class="line"><span class="cl">  Push  URL: https://github.com/schacon/ticgit
+</span></span><span class="line"><span class="cl">  HEAD branch: master
+</span></span><span class="line"><span class="cl">  Remote branches:
+</span></span><span class="line"><span class="cl">    master                               tracked
+</span></span><span class="line"><span class="cl">    dev-branch                           tracked
+</span></span><span class="line"><span class="cl">  Local branch configured <span class="k">for</span> <span class="s1">&#39;git pull&#39;</span>:
+</span></span><span class="line"><span class="cl">    master merges with remote master
+</span></span><span class="line"><span class="cl">  Local ref configured <span class="k">for</span> <span class="s1">&#39;git push&#39;</span>:
+</span></span><span class="line"><span class="cl">    master pushes to master <span class="o">(</span>up to date<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="远程仓库的重命名与移除">远程仓库的重命名与移除
+</h4><p>如果想要查看某一个远程仓库的更多信息，可以使用 <code>git remote show &lt;remote&gt;</code> 命令。 如果想以一个特定的缩写名运行这个命令，例如 <code>origin</code>，会得到像下面类似的信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git remote show origin
+</span></span><span class="line"><span class="cl">* remote origin
+</span></span><span class="line"><span class="cl">  Fetch URL: https://github.com/schacon/ticgit
+</span></span><span class="line"><span class="cl">  Push  URL: https://github.com/schacon/ticgit
+</span></span><span class="line"><span class="cl">  HEAD branch: master
+</span></span><span class="line"><span class="cl">  Remote branches:
+</span></span><span class="line"><span class="cl">    master                               tracked
+</span></span><span class="line"><span class="cl">    dev-branch                           tracked
+</span></span><span class="line"><span class="cl">  Local branch configured <span class="k">for</span> <span class="s1">&#39;git pull&#39;</span>:
+</span></span><span class="line"><span class="cl">    master merges with remote master
+</span></span><span class="line"><span class="cl">  Local ref configured <span class="k">for</span> <span class="s1">&#39;git push&#39;</span>:
+</span></span><span class="line"><span class="cl">    master pushes to master <span class="o">(</span>up to date<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="远程库修改的拉取操作">远程库修改的拉取操作
+</h3><h4 id="fetchmerge-操作">fetch+merge 操作
+</h4><ol>
+<li>抓取操作：fetch
+<code>git fetch &lt;别名&gt; &lt;分支&gt;</code>  只是将远程库内容下载到本地，工作区并没有更新
+可以先检查远程库的文件 <code>git checkout origin master</code>，查看内容是否正确</li>
+<li>合并操作：merge
+<ul>
+<li>切换到当前工作区主分支 <code>git merge chekout master</code></li>
+<li>合并：<code>git merge origin master</code></li>
+</ul>
+</li>
+</ol>
+<h4 id="pull-操作">pull 操作
+</h4><p>可以直接利用 pull 命令：</p>
+<p><code>git pull origin master</code></p>
+<p><code>fetch+pull</code> 更保险一点</p>
+<p>###<strong>推送分支</strong></p>
+<p><code>git push &lt;remote&gt; &lt;branch&gt;</code>。 当你想要将 <code>master</code> 分支推送到 <code>origin</code> 服务器时（再次说明，克隆时通常会自动帮你设置好那两个名字）， 那么运行这个命令就可以将你所做的备份到服务器：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ git push origin master  <span class="o">(</span>目前github主分支改用main<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="省略">省略
+</h2><p>29-31  团队合作部分</p>
+<h2 id="ssh-免密登录">SSH 免密登录
+</h2><ol>
+<li>进入都用户主目录中 <code>cd ~</code></li>
+<li>执行命令 <code>ssh-keygen -t rsa -C &lt;your github email&gt;</code> 生成.ssh 文件夹 （三次回车确认默认值）</li>
+<li>打开./ssh/id_rsa.pub 文件，复制密钥</li>
+<li>密钥添加到 github 的 setting 中</li>
+<li>生成密钥后，就可以正常进行 push 操作了</li>
+</ol>
+<p>在工作区进行如下操作：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;# guocfu.github.io&#34;</span> &gt;&gt; README.md
+</span></span><span class="line"><span class="cl">git init
+</span></span><span class="line"><span class="cl">git add README.md
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
+</span></span><span class="line"><span class="cl">git branch -M main
+</span></span><span class="line"><span class="cl">git remote add origin git@github.com:guocfu/guocfu.github.io.git
+</span></span><span class="line"><span class="cl">git push -u origin main
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    </footer>
+
+
+    
+        <link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI&#43;WdtXRGWt2kTvGFasHpSy3SV"crossorigin="anonymous"
+            ><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG&#43;vnGctmUb0ZY0l8"crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"integrity="sha384-&#43;VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4&#43;/RRE05"crossorigin="anonymous"
+                defer
+                >
+            </script><script>
+    window.addEventListener("DOMContentLoaded", () => {
+	const mainArticleElement = document.querySelector(".main-article");
+        renderMathInElement(mainArticleElement, {
+            delimiters: [
+                { left: "$$", right: "$$", display: true },
+                { left: "$", right: "$", display: false },
+                { left: "\\(", right: "\\)", display: false },
+                { left: "\\[", right: "\\]", display: true }
+            ],
+            ignoredClasses: ["gist"]
+        });})
+</script>
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2025 Lancelot
+    </section>
+    
+    <section class="powerby">
+        使用 <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> 构建 <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.30.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.5719dcc84b6ef842a71b0a57cfc469e619d221148c11831fae2c69d23036c455.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
