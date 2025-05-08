@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Git on Lancelot</title>
-        <link>http://localhost:5328/categories/git/</link>
+        <link>http://localhost:4053/categories/git/</link>
         <description>Recent content in Git on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Thu, 08 May 2025 18:18:59 +0800</lastBuildDate><atom:link href="http://localhost:5328/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 08 May 2025 18:18:59 +0800</lastBuildDate><atom:link href="http://localhost:4053/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Git 入门</title>
-        <link>http://localhost:5328/p/git-%E5%85%A5%E9%97%A8/</link>
+        <link>http://localhost:4053/p/git-%E5%85%A5%E9%97%A8/</link>
         <pubDate>Thu, 08 May 2025 18:18:59 +0800</pubDate>
         
-        <guid>http://localhost:5328/p/git-%E5%85%A5%E9%97%A8/</guid>
-        <description>&lt;img src="http://localhost:5328/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1&lt;/p&gt;
+        <guid>http://localhost:4053/p/git-%E5%85%A5%E9%97%A8/</guid>
+        <description>&lt;img src="http://localhost:4053/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;教程：https://www.bilibili.com/video/BV1Zz4y1C7vg?p = 1&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/git/git-remote-repo.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Git 远程仓库(Github) | 菜鸟教程&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
