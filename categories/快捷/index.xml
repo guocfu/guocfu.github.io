@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>快捷 on Lancelot</title>
+        <link>http://localhost:10257/categories/%E5%BF%AB%E6%8D%B7/</link>
+        <description>Recent content in 快捷 on Lancelot</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>zh-cn</language>
+        <copyright>Lancelot</copyright>
+        <lastBuildDate>Sat, 17 May 2025 21:46:57 +0800</lastBuildDate><atom:link href="http://localhost:10257/categories/%E5%BF%AB%E6%8D%B7/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>快捷键</title>
+        <link>http://localhost:10257/p/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+        <pubDate>Sat, 17 May 2025 21:46:57 +0800</pubDate>
+        
+        <guid>http://localhost:10257/p/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+        <description>&lt;h2 id=&#34;idea快捷键&#34;&gt;IDEA快捷键：
+&lt;/h2&gt;&lt;table&gt;
+  &lt;thead&gt;
+      &lt;tr&gt;
+          &lt;th style=&#34;text-align: left&#34;&gt;快捷键&lt;/th&gt;
+          &lt;th&gt;功能&lt;/th&gt;
+      &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Alt+S&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;开关vim&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Alt+/&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;代码补全&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Alt+Enter&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;导入包，自动修正代码(重中之重)&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl+Y&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;删除光标所在行&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl+D&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;复制光标所在行的内容，插入光标位置下面&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl+Shift+Alt+L&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;格式化代码&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl+/&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;单行注释&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Ctrl+Shift+/&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;选中代码注释，多行注释，再按取消注释&lt;/td&gt;
+      &lt;/tr&gt;
+      &lt;tr&gt;
+          &lt;td style=&#34;text-align: left&#34;&gt;&lt;code&gt;Alt+Shift+上下箭头&lt;/code&gt;&lt;/td&gt;
+          &lt;td&gt;移动当前代码行&lt;/td&gt;
+      &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;按住Ctrl键不放，鼠标点击标识符，可跳转到定义处&lt;/p&gt;
+&lt;p&gt;Alt+Insert 生成JavaBean&lt;/p&gt;
+&lt;p&gt;Ctrl+Alt+M 将选中的代码抽出来封装为一个方法&lt;/p&gt;
+&lt;p&gt;new Classname().var-&amp;gt;快速生成对象&lt;/p&gt;
+&lt;p&gt;arr.fori -&amp;gt; 快速生成for循环&lt;/p&gt;
+&lt;h2 id=&#34;输入法快捷键&#34;&gt;输入法快捷键：
+&lt;/h2&gt;&lt;p&gt;Ctrl+句号：中英文标点切换&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
+</rss>
