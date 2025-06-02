@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=12775&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="这是一个副标题">
-<title>Chinese Test</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
+<title>Learn Git Branching</title>
 
-<link rel='canonical' href='http://localhost:12775/p/test-chinese/'>
+<link rel='canonical' href='http://localhost:12775/p/learn-git-branching/'>
 
-<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Chinese Test">
-<meta property='og:description' content="这是一个副标题">
-<meta property='og:url' content='http://localhost:12775/p/test-chinese/'>
+<link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Learn Git Branching">
+<meta property='og:description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
+<meta property='og:url' content='http://localhost:12775/p/learn-git-branching/'>
 <meta property='og:site_name' content='Lancelot'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2020-09-09T00:00:00&#43;00:00'/><meta property='article:modified_time' content='2020-09-09T00:00:00&#43;00:00'/><meta property='og:image' content='http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
-<meta name="twitter:title" content="Chinese Test">
-<meta name="twitter:description" content="这是一个副标题"><meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content='http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-02T20:17:20&#43;08:00'/><meta property='article:modified_time' content='2025-06-02T20:17:20&#43;08:00'/>
+<meta name="twitter:title" content="Learn Git Branching">
+<meta name="twitter:description" content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
     </head>
     <body class="
     article-page
@@ -259,9 +258,26 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ol>
-    <li><a href="#正文测试">正文测试</a></li>
-    <li><a href="#引用">引用</a></li>
-    <li><a href="#图片">图片</a></li>
+    <li><a href="#基础篇">基础篇</a>
+      <ol>
+        <li><a href="#1git-commit">1.git commit</a></li>
+        <li><a href="#2git-branch">2.git branch</a></li>
+        <li><a href="#3git-merge">3.git merge</a></li>
+        <li><a href="#4git-rebase">4.git rebase</a></li>
+      </ol>
+    </li>
+    <li><a href="#高级篇">高级篇</a>
+      <ol>
+        <li><a href="#1head指针和分支指针">1.HEAD指针和分支指针</a>
+          <ol>
+            <li><a href="#head指针">HEAD指针</a></li>
+            <li><a href="#分支指针">分支指针</a></li>
+          </ol>
+        </li>
+        <li><a href="#2相对引用和">2.相对引用^和~</a></li>
+        <li><a href="#3版本回退resetrevert">3.版本回退(reset&amp;revert)</a></li>
+      </ol>
+    </li>
   </ol>
 </nav>
         </div>
@@ -273,31 +289,15 @@
 
 
             <main class="main full-width">
-    <article class="has-image main-article">
+    <article class="main-article">
     <header class="article-header">
-        <div class="article-image">
-            <a href="/p/test-chinese/">
-                <img src="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_e5aaa5f0b7bd07e9.jpg"
-                        srcset="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_e5aaa5f0b7bd07e9.jpg 800w, /p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_c99ba9c80ceee4b3.jpg 1600w"
-                        width="800" 
-                        height="600" 
-                        loading="lazy"
-                        alt="Featured image of post Chinese Test" />
-                
-            </a>
-        </div>
-    
 
     <div class="article-details">
     
     <header class="article-category">
         
-            <a href="/categories/test/" style="background-color: #2a9d8f; color: #fff;">
-                Test
-            </a>
-        
-            <a href="/categories/%E6%B5%8B%E8%AF%95/" >
-                测试
+            <a href="/categories/git/" >
+                Git
             </a>
         
     </header>
@@ -305,13 +305,9 @@
 
     <div class="article-title-wrapper">
         <h2 class="article-title">
-            <a href="/p/test-chinese/">Chinese Test</a>
+            <a href="/p/learn-git-branching/">Learn Git Branching</a>
         </h2>
     
-        
-        <h3 class="article-subtitle">
-            这是一个副标题
-        </h3>
         
     </div>
 
@@ -331,7 +327,7 @@
   <path d="M3 11h16" />
   <path d="M18 16.496v1.504l1 1" />
 </svg>
-                <time class="article-time--published">2020-09-09</time>
+                <time class="article-time--published">2025-06-02</time>
             </div>
         
 
@@ -346,7 +342,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 2 分钟
+                    阅读时长: 5 分钟
                 </time>
             </div>
         
@@ -361,72 +357,36 @@
     <section class="article-content">
     
     
-    <h2 id="正文测试">正文测试
-</h2><p>而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。</p>
-<p>奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。</p>
-<h2 id="引用">引用
+    <blockquote>
+<p>学习网站: <a class="link" href="https://learngitbranching.js.org/?locale=zh_CN"  target="_blank" rel="noopener"
+    >Learn Git Branching</a></p>
+<p>参考笔记: <a class="link" href="https://www.zhihu.com/column/c_1561431080028381184"  target="_blank" rel="noopener"
+    >git学习笔记 - 知乎</a></p></blockquote>
+<h1 id="主要">主要
+</h1><h2 id="基础篇">基础篇
 </h2><blockquote>
-<p>思念是最暖的忧伤像一双翅膀<br>
-让我停不了飞不远在过往游荡<br>
-不告而别的你 就算为了我着想<br>
-这么沉痛的呵护 我怎么能翱翔</p>
-<p><em><a class="link" href="https://www.youtube.com/watch?v=3aypp_YlBzI"  target="_blank" rel="noopener"
-    >最暖的憂傷 - 田馥甄</a></em></p></blockquote>
-<h2 id="图片">图片
-</h2><p><img src="/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg"
-	width="667"
-	height="1000"
-	srcset="/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e98fca2b4272416e.jpg 480w, /p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e3d37c9ded115b12.jpg 1024w"
-	loading="lazy"
-	
-		alt="Photo by Florian Klauer on Unsplash"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="66"
-		data-flex-basis="160px"
-	
->  <img src="/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg"
-	width="1000"
-	height="667"
-	srcset="/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_e13c58d5189f892c.jpg 480w, /p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_8fc948b7ee525251.jpg 1024w"
-	loading="lazy"
-	
-		alt="Photo by Luca Bravo on Unsplash"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="149"
-		data-flex-basis="359px"
-	
-></p>
-<p><img src="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg"
-	width="1000"
-	height="750"
-	srcset="/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_503c0ebcc5245e10.jpg 480w, /p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_48c98de55fb3c999.jpg 1024w"
-	loading="lazy"
-	
-		alt="Photo by Helena Hertz on Unsplash"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="133"
-		data-flex-basis="320px"
-	
->  <img src="/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg"
-	width="667"
-	height="1000"
-	srcset="/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_f81a3588c5c4a663.jpg 480w, /p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_1c52ba2a4ad7b9a0.jpg 1024w"
-	loading="lazy"
-	
-		alt="Photo by Hudai Gayiran on Unsplash"
-	
-	
-		class="gallery-image" 
-		data-flex-grow="66"
-		data-flex-basis="160px"
-	
-></p>
+<p>循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase</p></blockquote>
+<h3 id="1git-commit">1.git commit
+</h3><p><code>git commit</code><strong>修改了代码库, 把这些修改保存成了一个提交记录</strong>C2。C2的父节点是C1，父节点是当前提交中变更的基础。</p>
+<p><strong>题目:提交两次修改</strong></p>
+<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w.jpg" alt="img" style="zoom: 80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit //生成C2节点
+</span></span><span class="line"><span class="cl">git commit //生成C3节点
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2git-branch">2.git branch
+</h3><p><code>git branch &lt;newImage&gt;</code><strong>新建一个名为newImage的分支指向当前提交记录</strong></p>
+<p>Git的分支也非常轻量。它们只是简单地指向某个提交记录</p>
+<p><code>git checkout &lt;newImage&gt;</code><strong>切换到分支newImage上</strong></p>
+<p><code>git checkout -b &lt;branch name&gt;</code><strong>创建一个新分支并切换过去</strong></p>
+<p>**题目：**创建一个名为bugFix的新分支，然后切换过去。（有更简洁的方式：想创建一个新的分支同时切换到新创建的分支的话，可以通过git checkout -b &lt;your branch name&gt;来实现）</p>
+<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w-17488485245532.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -434,14 +394,154 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">![<span class="nt">Photo by Florian Klauer on Unsplash</span>](<span class="na">florian-klauer-nptLmg6jqDo-unsplash.jpg</span>)  ![<span class="nt">Photo by Luca Bravo on Unsplash</span>](<span class="na">luca-bravo-alS7ewQ41M8-unsplash.jpg</span>) 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">![<span class="nt">Photo by Helena Hertz on Unsplash</span>](<span class="na">helena-hertz-wWZzXlDpMog-unsplash.jpg</span>)  ![<span class="nt">Photo by Hudai Gayiran on Unsplash</span>](<span class="na">hudai-gayiran-3Od_VKcDEAA-unsplash.jpg</span>)
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch bugFix   //生成分支bugFix
+</span></span><span class="line"><span class="cl">git checkout bugFix //切换到bugFix分支上
+</span></span><span class="line"><span class="cl">// git checkout -b bugFix
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>相册语法来自 <a class="link" href="https://typlog.com/"  target="_blank" rel="noopener"
-    >Typlog</a></p>
-
+</div><h3 id="3git-merge">3.git merge
+</h3><p><code>git merge &lt;bugFix&gt;</code>(当前分支为main)把bugFix<strong>合并到当前分支</strong>(main)中, 并生成新的提交记录, 该提交记录以上面两个提交记录为父节点</p>
+<p><strong>题目：</strong></p>
+<img src="images/v2-b04e3e9d3381ed5691c57873babb60fd_720w.jpg" alt="img" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout -b bugFix //创建并切换分支bugFix
+</span></span><span class="line"><span class="cl">git commit             //在bugFix分支增加C2节点
+</span></span><span class="line"><span class="cl">git checkout main      //切换到main上
+</span></span><span class="line"><span class="cl">git commit             //在main分支增加C3节点
+</span></span><span class="line"><span class="cl">git merge bugFix       //将bugFix分支的内容合并到main上
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4git-rebase">4.git rebase
+</h3><p>第二种合并方法：<code>git rebase </code>。rebase实际上就是取出一系列的提交记录，“复制”题目，然后再另外一个地方逐个的放下去。</p>
+<p>rebase的优势就是可以创造更线性的提交历史，如果只允许使用rebase的话，代码库的提交历史将会变得异常清晰。</p>
+<p>(当前分支为bugFix)输入<code>git rebase &lt;main&gt;</code><strong>将bugFix记录的副本复制到main下面</strong>, 原本的提交记录仍存在</p>
+<p><code>git checkout main; git rebase bugFix</code>将main分支rebase到bugFix上(<strong>main和bugFix此时指向同一个提交记录, 即原bugFIx的副本</strong>)</p>
+<p><strong>题目:</strong></p>
+<img src="images/v2-d7a55ff6e2e7dd982ca494a72ec8fc59_720w.jpg" alt="img" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git checkout -b bugFix //创建并切换分支bugFix
+</span></span><span class="line"><span class="cl">git commit             //在bugFix上增加C2节点
+</span></span><span class="line"><span class="cl">git checkout main      //切换到main上
+</span></span><span class="line"><span class="cl">git commit             //在main上增加C3节点
+</span></span><span class="line"><span class="cl">git checkout bugFix    //切换到bugFix分支上
+</span></span><span class="line"><span class="cl">git rebase main        //将bugFix分支上的内容合并到main上
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="高级篇">高级篇
+</h2><blockquote>
+<ul>
+<li>使用<code>git checkout</code>移动HEAD指针</li>
+<li>使用<code>git branch -f</code> 来移动分支指针</li>
+<li>相对引用^和~&lt;num&gt;</li>
+<li><code>git reset HEAD~</code>和<code>git revert HEAD</code>撤销当前提交</li>
+</ul></blockquote>
+<h3 id="1head指针和分支指针">1.HEAD指针和分支指针
+</h3><blockquote>
+<p><a class="link" href="https://blog.csdn.net/HandsomeHong/article/details/112759075"  target="_blank" rel="noopener"
+    >git基础教程(12) 理解HEAD指针和分支指针_git head分支-CSDN博客</a></p></blockquote>
+<h4 id="head指针">HEAD指针
+</h4><p>使用<code>git checkout</code> 来<strong>移动HEAD指针</strong>，移动的对象可以是<strong>分支指针也可以是快照。</strong></p>
+<p>HEAD是一个对当前检出记录的符号引用——也就是指向正在其基础上工作的提交记录。<strong>HEAD指针可以指向快照也可以指向branch</strong>。当指向branch时提交后会和branch指针一起向后移动，当不指向branch提交时则会在一个detached状态。</p>
+<ol>
+<li>HEAD指针默认指向当前的分支指针，用星号表示，如master*</li>
+<li>移动HEAD指针，<code>git checkout C1</code>
+这个时候HEAD指针指向的是快照，这个时候指针的状态称之为<strong>游离状态，detached</strong>，可以理解为没有和任何分支绑定。</li>
+</ol>
+<p>游离的HEAD就是让其指向了某个具体的提交记录而不是分支名。在命令执行之前的状态如下所示：</p>
+<p>HEAD -&gt; main -&gt; C1（HEAD指向main，main指向C1）</p>
+<h4 id="分支指针">分支指针
+</h4><p>使用<code>git branch -f</code> 来<strong>移动分支指针</strong>，<strong>移动的对象(方向)只能是快照。当且仅当HEAD指针指向分支指针的时候，提交才会有效</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git branch -f main HEAD~3 //这条命令会将main分支强制指向HEAD的第3级父提交。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2相对引用和">2.相对引用^和~
+</h3><p>使用相对引用的话，可以从一个易于记忆的地方（比如bugFix分支或者HEAD）开始计算。</p>
+<p>两种简单的用法：</p>
+<p>1.使用<code>^</code>向上移动1个提交记录</p>
+<p>2.使用<code>~&lt;num&gt;</code>向上移动多个提交记录，如~3</p>
+<p>**题目: **要完成此关，移动HEAD，main和bugFix到目标所示的位置。</p>
+<img src="images/v2-a72b7a42eb8db8579bcac0c0319e8748_720w.jpg" alt="img" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">// 三条命令的顺序不重要
+</span></span><span class="line"><span class="cl">$ git branch -f main C6
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git checkout HEAD^   // 或者git checkout C1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ git branch -f bugFix HEAD^
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3版本回退resetrevert">3.版本回退(reset&amp;revert)
+</h3><p>在git里撤销变更的方法很多，和提交一样，撤销变更由底层部分（暂存区的独立文件或者片段）和上层部门（变更到底是通过哪种方式被撤销的）组成。我们这个应用主要关注的是后者。</p>
+<p>主要有两种方法用来撤销变更——一是<code>git reset</code>，还有就是<code>git revert</code>，接下来咱们逐个进行讲解。</p>
+<p><strong>Git Reset</strong></p>
+<p>git reset通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。<strong>git reset向上移动分支</strong>，原来指向的提交记录就跟从来没有提交过一样。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD~  // 撤销当前提交<span class="o">(</span>即向上移动分支<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Git把main分支移回到C1；现在我们的本地代码库根本就不知道有C2这个提交了。（在reset后，C2所做的变更还在，但是处于未加入暂存区状态。）</p>
+<p><strong>Git Revert</strong></p>
+<p>git reset对远程分支无效, git revert在要撤销的记录C2后多出一个新提交记录C2&rsquo;, 该记录表示的就是撤销上一个提交记录C2, 也就是说 C2&rsquo; 的状态与 C1 是相同的. 如果C2后边还有C3,C4等等提交，C3,C4的修改不会动，仅仅是撤销C2的这次提交修改的内容！并在C4后边生成新的提交（撤销C2的修改）。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git revert HEAD // 撤销当前提交
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>题目：</strong></p>
+<p>要完成此关，分别撤销 local 分支和 pushed 分支上的最近一次提交。共需要撤销两个提交（每个分支一个）。
+记住 pushed 是远程分支，local 是本地分支。</p>
+<img src="images/v2-35986692e93b6f469210ecc07b0cdbaf_720w.jpg" alt="img" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD^     //撤销本地分支用reset 
+</span></span><span class="line"><span class="cl">git checkout pushed  
+</span></span><span class="line"><span class="cl">git revert HEAD     //撤销远程分支用revert
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 </section>
 
 
@@ -491,47 +591,23 @@
             
                 
 <article class="has-image">
-    <a href="/p/placeholder-text/">
+    <a href="/p/git-%E5%85%A5%E9%97%A8/">
         
         
             <div class="article-image">
-                <img src="/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.8eae06664ddfb3e8dc6e000756cb703b_hu_cc847465c05fc251.jpg" 
+                <img src="/p/git-%E5%85%A5%E9%97%A8/images/test.bee36bb775304128ae2e20fcb30e4772_hu_4f5ea21cc9d791fd.jpg" 
                         width="250" 
                         height="150" 
                         loading="lazy"
-                        alt="Featured image of post Placeholder Text"
+                        alt="Featured image of post Git 入门"
                         
-                        data-hash="md5-jq4GZk3fs&#43;jcbgAHVstwOw==">
+                        data-hash="md5-vuNrt3UwQSiuLiD8sw5Hcg==">
                 
             </div>
         
 
         <div class="article-details">
-            <h2 class="article-title">Placeholder Text</h2>
-        </div>
-    </a>
-</article>
-
-            
-                
-<article class="has-image">
-    <a href="/p/emoji-support/">
-        
-        
-            <div class="article-image">
-                <img src="/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.60116b1ccfc8632e9a65f7d51df3efc2_hu_c1cfd6b8275d624a.jpg" 
-                        width="250" 
-                        height="150" 
-                        loading="lazy"
-                        alt="Featured image of post Emoji Support"
-                        
-                        data-hash="md5-YBFrHM/IYy6aZffVHfPvwg==">
-                
-            </div>
-        
-
-        <div class="article-details">
-            <h2 class="article-title">Emoji Support</h2>
+            <h2 class="article-title">Git 入门</h2>
         </div>
     </a>
 </article>

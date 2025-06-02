@@ -2,17 +2,209 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Lancelot</title>
-        <link>http://localhost:10257/</link>
+        <link>http://localhost:12775/</link>
         <description>Recent content on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Sat, 17 May 2025 21:46:57 +0800</lastBuildDate><atom:link href="http://localhost:10257/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 Jun 2025 20:17:20 +0800</lastBuildDate><atom:link href="http://localhost:12775/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Learn Git Branching</title>
+        <link>http://localhost:12775/p/learn-git-branching/</link>
+        <pubDate>Mon, 02 Jun 2025 20:17:20 +0800</pubDate>
+        
+        <guid>http://localhost:12775/p/learn-git-branching/</guid>
+        <description>&lt;blockquote&gt;
+&lt;p&gt;学习网站: &lt;a class=&#34;link&#34; href=&#34;https://learngitbranching.js.org/?locale=zh_CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Learn Git Branching&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;参考笔记: &lt;a class=&#34;link&#34; href=&#34;https://www.zhihu.com/column/c_1561431080028381184&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git学习笔记 - 知乎&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h1 id=&#34;主要&#34;&gt;主要
+&lt;/h1&gt;&lt;h2 id=&#34;基础篇&#34;&gt;基础篇
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;1git-commit&#34;&gt;1.git commit
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git commit&lt;/code&gt;&lt;strong&gt;修改了代码库, 把这些修改保存成了一个提交记录&lt;/strong&gt;C2。C2的父节点是C1，父节点是当前提交中变更的基础。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目:提交两次修改&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w.jpg&#34; alt=&#34;img&#34; style=&#34;zoom: 80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit //生成C2节点
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit //生成C3节点
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;2git-branch&#34;&gt;2.git branch
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git branch &amp;lt;newImage&amp;gt;&lt;/code&gt;&lt;strong&gt;新建一个名为newImage的分支指向当前提交记录&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Git的分支也非常轻量。它们只是简单地指向某个提交记录&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git checkout &amp;lt;newImage&amp;gt;&lt;/code&gt;&lt;strong&gt;切换到分支newImage上&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git checkout -b &amp;lt;branch name&amp;gt;&lt;/code&gt;&lt;strong&gt;创建一个新分支并切换过去&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;**题目：**创建一个名为bugFix的新分支，然后切换过去。（有更简洁的方式：想创建一个新的分支同时切换到新创建的分支的话，可以通过git checkout -b &amp;lt;your branch name&amp;gt;来实现）&lt;/p&gt;
+&lt;img src=&#34;images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w-17488485245532.jpg&#34; alt=&#34;img&#34; style=&#34;zoom:80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch bugFix   //生成分支bugFix
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout bugFix //切换到bugFix分支上
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;// git checkout -b bugFix
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;3git-merge&#34;&gt;3.git merge
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;git merge &amp;lt;bugFix&amp;gt;&lt;/code&gt;(当前分支为main)把bugFix&lt;strong&gt;合并到当前分支&lt;/strong&gt;(main)中, 并生成新的提交记录, 该提交记录以上面两个提交记录为父节点&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目：&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;images/v2-b04e3e9d3381ed5691c57873babb60fd_720w.jpg&#34; alt=&#34;img&#34; style=&#34;zoom:80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout -b bugFix //创建并切换分支bugFix
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit             //在bugFix分支增加C2节点
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout main      //切换到main上
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit             //在main分支增加C3节点
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git merge bugFix       //将bugFix分支的内容合并到main上
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;4git-rebase&#34;&gt;4.git rebase
+&lt;/h3&gt;&lt;p&gt;第二种合并方法：&lt;code&gt;git rebase &lt;/code&gt;。rebase实际上就是取出一系列的提交记录，“复制”题目，然后再另外一个地方逐个的放下去。&lt;/p&gt;
+&lt;p&gt;rebase的优势就是可以创造更线性的提交历史，如果只允许使用rebase的话，代码库的提交历史将会变得异常清晰。&lt;/p&gt;
+&lt;p&gt;(当前分支为bugFix)输入&lt;code&gt;git rebase &amp;lt;main&amp;gt;&lt;/code&gt;&lt;strong&gt;将bugFix记录的副本复制到main下面&lt;/strong&gt;, 原本的提交记录仍存在&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;git checkout main; git rebase bugFix&lt;/code&gt;将main分支rebase到bugFix上(&lt;strong&gt;main和bugFix此时指向同一个提交记录, 即原bugFIx的副本&lt;/strong&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;题目:&lt;/strong&gt;&lt;/p&gt;
+&lt;img src=&#34;images/v2-d7a55ff6e2e7dd982ca494a72ec8fc59_720w.jpg&#34; alt=&#34;img&#34; style=&#34;zoom:80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout -b bugFix //创建并切换分支bugFix
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit             //在bugFix上增加C2节点
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout main      //切换到main上
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git commit             //在main上增加C3节点
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout bugFix    //切换到bugFix分支上
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git rebase main        //将bugFix分支上的内容合并到main上
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id=&#34;高级篇&#34;&gt;高级篇
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;使用&lt;code&gt;git checkout&lt;/code&gt;移动HEAD指针&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;git branch -f&lt;/code&gt; 来移动分支指针&lt;/li&gt;
+&lt;li&gt;相对引用^和~&amp;lt;num&amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git reset HEAD~&lt;/code&gt;和&lt;code&gt;git revert HEAD&lt;/code&gt;撤销当前提交&lt;/li&gt;
+&lt;/ul&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;1head指针和分支指针&#34;&gt;1.HEAD指针和分支指针
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://blog.csdn.net/HandsomeHong/article/details/112759075&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;git基础教程(12) 理解HEAD指针和分支指针_git head分支-CSDN博客&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h4 id=&#34;head指针&#34;&gt;HEAD指针
+&lt;/h4&gt;&lt;p&gt;使用&lt;code&gt;git checkout&lt;/code&gt; 来&lt;strong&gt;移动HEAD指针&lt;/strong&gt;，移动的对象可以是&lt;strong&gt;分支指针也可以是快照。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;HEAD是一个对当前检出记录的符号引用——也就是指向正在其基础上工作的提交记录。&lt;strong&gt;HEAD指针可以指向快照也可以指向branch&lt;/strong&gt;。当指向branch时提交后会和branch指针一起向后移动，当不指向branch提交时则会在一个detached状态。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;HEAD指针默认指向当前的分支指针，用星号表示，如master*&lt;/li&gt;
+&lt;li&gt;移动HEAD指针，&lt;code&gt;git checkout C1&lt;/code&gt;
+这个时候HEAD指针指向的是快照，这个时候指针的状态称之为&lt;strong&gt;游离状态，detached&lt;/strong&gt;，可以理解为没有和任何分支绑定。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;游离的HEAD就是让其指向了某个具体的提交记录而不是分支名。在命令执行之前的状态如下所示：&lt;/p&gt;
+&lt;p&gt;HEAD -&amp;gt; main -&amp;gt; C1（HEAD指向main，main指向C1）&lt;/p&gt;
+&lt;h4 id=&#34;分支指针&#34;&gt;分支指针
+&lt;/h4&gt;&lt;p&gt;使用&lt;code&gt;git branch -f&lt;/code&gt; 来&lt;strong&gt;移动分支指针&lt;/strong&gt;，&lt;strong&gt;移动的对象(方向)只能是快照。当且仅当HEAD指针指向分支指针的时候，提交才会有效&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git branch -f main HEAD~3 //这条命令会将main分支强制指向HEAD的第3级父提交。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;2相对引用和&#34;&gt;2.相对引用^和~
+&lt;/h3&gt;&lt;p&gt;使用相对引用的话，可以从一个易于记忆的地方（比如bugFix分支或者HEAD）开始计算。&lt;/p&gt;
+&lt;p&gt;两种简单的用法：&lt;/p&gt;
+&lt;p&gt;1.使用&lt;code&gt;^&lt;/code&gt;向上移动1个提交记录&lt;/p&gt;
+&lt;p&gt;2.使用&lt;code&gt;~&amp;lt;num&amp;gt;&lt;/code&gt;向上移动多个提交记录，如~3&lt;/p&gt;
+&lt;p&gt;**题目: **要完成此关，移动HEAD，main和bugFix到目标所示的位置。&lt;/p&gt;
+&lt;img src=&#34;images/v2-a72b7a42eb8db8579bcac0c0319e8748_720w.jpg&#34; alt=&#34;img&#34; style=&#34;zoom:80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;// 三条命令的顺序不重要
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git branch -f main C6
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git checkout HEAD^   // 或者git checkout C1
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ git branch -f bugFix HEAD^
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id=&#34;3版本回退resetrevert&#34;&gt;3.版本回退(reset&amp;amp;revert)
+&lt;/h3&gt;&lt;p&gt;在git里撤销变更的方法很多，和提交一样，撤销变更由底层部分（暂存区的独立文件或者片段）和上层部门（变更到底是通过哪种方式被撤销的）组成。我们这个应用主要关注的是后者。&lt;/p&gt;
+&lt;p&gt;主要有两种方法用来撤销变更——一是&lt;code&gt;git reset&lt;/code&gt;，还有就是&lt;code&gt;git revert&lt;/code&gt;，接下来咱们逐个进行讲解。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Git Reset&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;git reset通过把分支记录回退几个提交记录来实现撤销改动。你可以将这想象成“改写历史”。&lt;strong&gt;git reset向上移动分支&lt;/strong&gt;，原来指向的提交记录就跟从来没有提交过一样。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset HEAD~  // 撤销当前提交&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;即向上移动分支&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Git把main分支移回到C1；现在我们的本地代码库根本就不知道有C2这个提交了。（在reset后，C2所做的变更还在，但是处于未加入暂存区状态。）&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Git Revert&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;git reset对远程分支无效, git revert在要撤销的记录C2后多出一个新提交记录C2&amp;rsquo;, 该记录表示的就是撤销上一个提交记录C2, 也就是说 C2&amp;rsquo; 的状态与 C1 是相同的. 如果C2后边还有C3,C4等等提交，C3,C4的修改不会动，仅仅是撤销C2的这次提交修改的内容！并在C4后边生成新的提交（撤销C2的修改）。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git revert HEAD // 撤销当前提交
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;strong&gt;题目：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;要完成此关，分别撤销 local 分支和 pushed 分支上的最近一次提交。共需要撤销两个提交（每个分支一个）。
+记住 pushed 是远程分支，local 是本地分支。&lt;/p&gt;
+&lt;img src=&#34;images/v2-35986692e93b6f469210ecc07b0cdbaf_720w.jpg&#34; alt=&#34;img&#34; style=&#34;zoom:80%;&#34; /&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git reset HEAD^     //撤销本地分支用reset 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git checkout pushed  
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;git revert HEAD     //撤销远程分支用revert
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description>
+        </item>
+        <item>
         <title>个人常用快捷键</title>
-        <link>http://localhost:10257/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+        <link>http://localhost:12775/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
         <pubDate>Sat, 17 May 2025 21:46:57 +0800</pubDate>
         
-        <guid>http://localhost:10257/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+        <guid>http://localhost:12775/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
         <description>&lt;h2 id=&#34;idea快捷键&#34;&gt;IDEA快捷键
 &lt;/h2&gt;&lt;p&gt;Alt+S：开关vim&lt;/p&gt;
 &lt;p&gt;Alt+/：代码补全&lt;/p&gt;
@@ -34,11 +226,11 @@
         </item>
         <item>
         <title>Java Scanner类中.next()和.nextLine()方法的区别</title>
-        <link>http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+        <link>http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
-        <description>&lt;img src="http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/demo2.jpg" alt="Featured image of post Java Scanner类中.next()和.nextLine()方法的区别" /&gt;&lt;p&gt;&lt;code&gt;Scanner&lt;/code&gt; 类是 &lt;code&gt;java.util&lt;/code&gt; 包的一部分，用于获取基本类型的输入例如 &lt;code&gt;double&lt;/code&gt;、&lt;code&gt;int&lt;/code&gt; 和 &lt;code&gt;string&lt;/code&gt;。&lt;/p&gt;
+        <guid>http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+        <description>&lt;img src="http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/demo2.jpg" alt="Featured image of post Java Scanner类中.next()和.nextLine()方法的区别" /&gt;&lt;p&gt;&lt;code&gt;Scanner&lt;/code&gt; 类是 &lt;code&gt;java.util&lt;/code&gt; 包的一部分，用于获取基本类型的输入例如 &lt;code&gt;double&lt;/code&gt;、&lt;code&gt;int&lt;/code&gt; 和 &lt;code&gt;string&lt;/code&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;scanner中的next方法&#34;&gt;&lt;code&gt;Scanner&lt;/code&gt;中的&lt;code&gt;next()&lt;/code&gt;方法
 &lt;/h2&gt;&lt;p&gt;Scanner中的next()方法主要用于获取字符串的输入,它会&lt;strong&gt;自动消去有效字符前的空白符&lt;/strong&gt;（如：空格、Tab键或者换行符），在获取有效字符之后，next()方法会&lt;strong&gt;将其后输入的空白符作为结束符&lt;/strong&gt;，&lt;strong&gt;该空白符仍保留在缓冲区中&lt;/strong&gt;。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
@@ -119,10 +311,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;运行结果如图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176.png&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176.png&#34;
 	width=&#34;507&#34;
 	height=&#34;245&#34;
-	srcset=&#34;http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176_hu_febac742cf7a0ac2.png 480w, http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176_hu_73471fe5efa7878d.png 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176_hu_febac742cf7a0ac2.png 480w, http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510140349176_hu_73471fe5efa7878d.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -212,10 +404,10 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917.png&#34;
+&lt;/div&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917.png&#34;
 	width=&#34;514&#34;
 	height=&#34;217&#34;
-	srcset=&#34;http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917_hu_32aab3d214718b22.png 480w, http://localhost:10257/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917_hu_852419333ab7e01.png 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917_hu_32aab3d214718b22.png 480w, http://localhost:12775/p/java-scanner%E7%B1%BB%E4%B8%AD.next%E5%92%8C.nextline%E6%96%B9%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB/images/image-20250510141838917_hu_852419333ab7e01.png 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 	
@@ -230,11 +422,11 @@
         </item>
         <item>
         <title>Git 入门</title>
-        <link>http://localhost:10257/p/git-%E5%85%A5%E9%97%A8/</link>
+        <link>http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/</link>
         <pubDate>Thu, 08 May 2025 18:18:59 +0800</pubDate>
         
-        <guid>http://localhost:10257/p/git-%E5%85%A5%E9%97%A8/</guid>
-        <description>&lt;img src="http://localhost:10257/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Zz4y1C7vg?vd_source=34f258c10dffd1ad2b0976714550c032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/</guid>
+        <description>&lt;img src="http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Zz4y1C7vg?vd_source=34f258c10dffd1ad2b0976714550c032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【2021年Git全集教程】大牛4小时带你精通Git玩转GitHub（最新版）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/git/git-remote-repo.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
@@ -604,11 +796,11 @@
         </item>
         <item>
         <title>Chinese Test</title>
-        <link>http://localhost:10257/p/test-chinese/</link>
+        <link>http://localhost:12775/p/test-chinese/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/test-chinese/</guid>
-        <description>&lt;img src="http://localhost:10257/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
+        <guid>http://localhost:12775/p/test-chinese/</guid>
+        <description>&lt;img src="http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Chinese Test" /&gt;&lt;h2 id=&#34;正文测试&#34;&gt;正文测试
 &lt;/h2&gt;&lt;p&gt;而这些并不是完全重要，更加重要的问题是， 带着这些问题，我们来审视一下学生会退会。 既然如何， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 我们不得不面对一个非常尴尬的事实，那就是， 可是，即使是这样，学生会退会的出现仍然代表了一定的意义。 学生会退会，发生了会如何，不发生又会如何。 经过上述讨论， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 学生会退会，到底应该如何实现。 这样看来， 在这种困难的抉择下，本人思来想去，寝食难安。 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 就我个人来说，学生会退会对我的意义，不能不说非常重大。 莎士比亚曾经提到过，人的一生是短的，但如果卑劣地过这一生，就太长了。这似乎解答了我的疑惑。 莫扎特说过一句富有哲理的话，谁和我一样用功，谁就会和我一样成功。这启发了我， 对我个人而言，学生会退会不仅仅是一个重大的事件，还可能会改变我的人生。 学生会退会，到底应该如何实现。 一般来说， 从这个角度来看， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 在这种困难的抉择下，本人思来想去，寝食难安。 了解清楚学生会退会到底是一种怎么样的存在，是解决一切问题的关键。 一般来说， 生活中，若学生会退会出现了，我们就不得不考虑它出现了的事实。 问题的关键究竟为何？ 而这些并不是完全重要，更加重要的问题是。&lt;/p&gt;
 &lt;p&gt;奥斯特洛夫斯基曾经说过，共同的事业，共同的斗争，可以使人们产生忍受一切的力量。　带着这句话，我们还要更加慎重的审视这个问题： 一般来讲，我们都必须务必慎重的考虑考虑。 既然如此， 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 带着这些问题，我们来审视一下学生会退会。 我认为， 我认为， 在这种困难的抉择下，本人思来想去，寝食难安。 问题的关键究竟为何？ 每个人都不得不面对这些问题。 在面对这种问题时， 要想清楚，学生会退会，到底是一种怎么样的存在。 我认为， 既然如此， 每个人都不得不面对这些问题。 在面对这种问题时， 那么， 我认为， 学生会退会因何而发生。&lt;/p&gt;
 &lt;h2 id=&#34;引用&#34;&gt;引用
@@ -620,10 +812,10 @@
 &lt;p&gt;&lt;em&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.youtube.com/watch?v=3aypp_YlBzI&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;最暖的憂傷 - 田馥甄&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;h2 id=&#34;图片&#34;&gt;图片
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:10257/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:12775/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;http://localhost:10257/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e98fca2b4272416e.jpg 480w, http://localhost:10257/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e3d37c9ded115b12.jpg 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e98fca2b4272416e.jpg 480w, http://localhost:12775/p/test-chinese/florian-klauer-nptLmg6jqDo-unsplash_hu_e3d37c9ded115b12.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Florian Klauer on Unsplash&#34;
@@ -633,10 +825,10 @@
 		data-flex-grow=&#34;66&#34;
 		data-flex-basis=&#34;160px&#34;
 	
-&gt;  &lt;img src=&#34;http://localhost:10257/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;http://localhost:12775/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;667&#34;
-	srcset=&#34;http://localhost:10257/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_e13c58d5189f892c.jpg 480w, http://localhost:10257/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_8fc948b7ee525251.jpg 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_e13c58d5189f892c.jpg 480w, http://localhost:12775/p/test-chinese/luca-bravo-alS7ewQ41M8-unsplash_hu_8fc948b7ee525251.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Luca Bravo on Unsplash&#34;
@@ -647,10 +839,10 @@
 		data-flex-basis=&#34;359px&#34;
 	
 &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:10257/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash.jpg&#34;
 	width=&#34;1000&#34;
 	height=&#34;750&#34;
-	srcset=&#34;http://localhost:10257/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_503c0ebcc5245e10.jpg 480w, http://localhost:10257/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_48c98de55fb3c999.jpg 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_503c0ebcc5245e10.jpg 480w, http://localhost:12775/p/test-chinese/helena-hertz-wWZzXlDpMog-unsplash_hu_48c98de55fb3c999.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Helena Hertz on Unsplash&#34;
@@ -660,10 +852,10 @@
 		data-flex-grow=&#34;133&#34;
 		data-flex-basis=&#34;320px&#34;
 	
-&gt;  &lt;img src=&#34;http://localhost:10257/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
+&gt;  &lt;img src=&#34;http://localhost:12775/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash.jpg&#34;
 	width=&#34;667&#34;
 	height=&#34;1000&#34;
-	srcset=&#34;http://localhost:10257/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_f81a3588c5c4a663.jpg 480w, http://localhost:10257/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_1c52ba2a4ad7b9a0.jpg 1024w&#34;
+	srcset=&#34;http://localhost:12775/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_f81a3588c5c4a663.jpg 480w, http://localhost:12775/p/test-chinese/hudai-gayiran-3Od_VKcDEAA-unsplash_hu_1c52ba2a4ad7b9a0.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;Photo by Hudai Gayiran on Unsplash&#34;
@@ -692,19 +884,19 @@
         </item>
         <item>
         <title>归档</title>
-        <link>http://localhost:10257/archives/</link>
+        <link>http://localhost:12775/archives/</link>
         <pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/archives/</guid>
+        <guid>http://localhost:12775/archives/</guid>
         <description></description>
         </item>
         <item>
         <title>Markdown Syntax Guide</title>
-        <link>http://localhost:10257/p/markdown-syntax-guide/</link>
+        <link>http://localhost:12775/p/markdown-syntax-guide/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/markdown-syntax-guide/</guid>
-        <description>&lt;img src="http://localhost:10257/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+        <guid>http://localhost:12775/p/markdown-syntax-guide/</guid>
+        <description>&lt;img src="http://localhost:12775/p/markdown-syntax-guide/pawel-czerwinski-8uZPynIu-rQ-unsplash.jpg" alt="Featured image of post Markdown Syntax Guide" /&gt;&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
 &lt;h2 id=&#34;headings&#34;&gt;Headings
 &lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
 &lt;h1 id=&#34;h1&#34;&gt;H1
@@ -928,11 +1120,11 @@
         </item>
         <item>
         <title>Placeholder Text</title>
-        <link>http://localhost:10257/p/placeholder-text/</link>
+        <link>http://localhost:12775/p/placeholder-text/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/placeholder-text/</guid>
-        <description>&lt;img src="http://localhost:10257/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
+        <guid>http://localhost:12775/p/placeholder-text/</guid>
+        <description>&lt;img src="http://localhost:12775/p/placeholder-text/matt-le-SJSpo9hQf7s-unsplash.jpg" alt="Featured image of post Placeholder Text" /&gt;&lt;p&gt;Lorem est tota propiore conpellat pectoribus de pectora summo.&lt;/p&gt;
 &lt;p&gt;Redit teque digerit hominumque toris verebor lumina non cervice subde tollit usus habet Arctonque, furores quas nec ferunt. Quoque montibus nunc caluere tempus inhospita parcite confusaque translucet patri vestro qui optatis lumine cognoscere flos nubis! Fronde ipsamque patulos Dryopen deorum.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Exierant elisi ambit vivere dedere&lt;/li&gt;
@@ -959,10 +1151,10 @@
         </item>
         <item>
         <title>Math Typesetting</title>
-        <link>http://localhost:10257/p/math-typesetting/</link>
+        <link>http://localhost:12775/p/math-typesetting/</link>
         <pubDate>Fri, 08 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/math-typesetting/</guid>
+        <guid>http://localhost:12775/p/math-typesetting/</guid>
         <description>&lt;p&gt;Mathematical notation in a Hugo project can be enabled by using third party JavaScript libraries.&lt;/p&gt;
 &lt;p&gt;In this example we will be using &lt;a class=&#34;link&#34; href=&#34;https://katex.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;KaTeX&lt;/a&gt;&lt;/p&gt;
@@ -1001,11 +1193,11 @@ $$</description>
         </item>
         <item>
         <title>Emoji Support</title>
-        <link>http://localhost:10257/p/emoji-support/</link>
+        <link>http://localhost:12775/p/emoji-support/</link>
         <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/p/emoji-support/</guid>
-        <description>&lt;img src="http://localhost:10257/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
+        <guid>http://localhost:12775/p/emoji-support/</guid>
+        <description>&lt;img src="http://localhost:12775/p/emoji-support/the-creative-exchange-d2zvqp3fpro-unsplash.jpg" alt="Featured image of post Emoji Support" /&gt;&lt;p&gt;Emoji can be enabled in a Hugo project in a number of ways.&lt;/p&gt;
 &lt;p&gt;The &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/functions/emojify/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;&lt;code&gt;emojify&lt;/code&gt;&lt;/a&gt; function can be called directly in templates or &lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/templates/shortcode-templates/#inline-shortcodes&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Inline Shortcodes&lt;/a&gt;.&lt;/p&gt;
@@ -1032,18 +1224,18 @@ $$</description>
         </item>
         <item>
         <title>搜索</title>
-        <link>http://localhost:10257/search/</link>
+        <link>http://localhost:12775/search/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/search/</guid>
+        <guid>http://localhost:12775/search/</guid>
         <description></description>
         </item>
         <item>
         <title>友情链接</title>
-        <link>http://localhost:10257/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</link>
+        <link>http://localhost:12775/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</link>
         <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:10257/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</guid>
+        <guid>http://localhost:12775/%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5/</guid>
         <description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
