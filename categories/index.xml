@@ -2,89 +2,97 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Categories on Lancelot</title>
-        <link>http://localhost:12775/categories/</link>
+        <link>http://localhost:10094/categories/</link>
         <description>Recent content in Categories on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Mon, 02 Jun 2025 20:17:20 +0800</lastBuildDate><atom:link href="http://localhost:12775/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Jun 2025 14:47:04 +0800</lastBuildDate><atom:link href="http://localhost:10094/categories/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>编码</title>
+        <link>http://localhost:10094/categories/%E7%BC%96%E7%A0%81/</link>
+        <pubDate>Sat, 07 Jun 2025 14:47:04 +0800</pubDate>
+        
+        <guid>http://localhost:10094/categories/%E7%BC%96%E7%A0%81/</guid>
+        <description></description>
+        </item>
+        <item>
         <title>Git</title>
-        <link>http://localhost:12775/categories/git/</link>
+        <link>http://localhost:10094/categories/git/</link>
         <pubDate>Mon, 02 Jun 2025 20:17:20 +0800</pubDate>
         
-        <guid>http://localhost:12775/categories/git/</guid>
+        <guid>http://localhost:10094/categories/git/</guid>
         <description></description>
         </item>
         <item>
         <title>快捷键</title>
-        <link>http://localhost:12775/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+        <link>http://localhost:10094/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
         <pubDate>Sat, 17 May 2025 21:46:57 +0800</pubDate>
         
-        <guid>http://localhost:12775/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+        <guid>http://localhost:10094/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
         <description></description>
         </item>
         <item>
         <title>I/O</title>
-        <link>http://localhost:12775/categories/i/o/</link>
+        <link>http://localhost:10094/categories/i/o/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/i/o/</guid>
+        <guid>http://localhost:10094/categories/i/o/</guid>
         <description></description>
         </item>
         <item>
         <title>Java</title>
-        <link>http://localhost:12775/categories/java/</link>
+        <link>http://localhost:10094/categories/java/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/java/</guid>
+        <guid>http://localhost:10094/categories/java/</guid>
         <description></description>
         </item>
         <item>
         <title>Java Scanner</title>
-        <link>http://localhost:12775/categories/java-scanner/</link>
+        <link>http://localhost:10094/categories/java-scanner/</link>
         <pubDate>Sat, 10 May 2025 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/java-scanner/</guid>
+        <guid>http://localhost:10094/categories/java-scanner/</guid>
         <description></description>
         </item>
         <item>
         <title>Test</title>
-        <link>http://localhost:12775/categories/test/</link>
+        <link>http://localhost:10094/categories/test/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/test/</guid>
-        <description>&lt;img src="http://localhost:12775/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
+        <guid>http://localhost:10094/categories/test/</guid>
+        <description>&lt;img src="http://localhost:10094/categories/test/hutomo-abrianto-l2jk-uxb1BY-unsplash.jpg" alt="Featured image of post Test" /&gt;</description>
         </item>
         <item>
         <title>测试</title>
-        <link>http://localhost:12775/categories/%E6%B5%8B%E8%AF%95/</link>
+        <link>http://localhost:10094/categories/%E6%B5%8B%E8%AF%95/</link>
         <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/%E6%B5%8B%E8%AF%95/</guid>
+        <guid>http://localhost:10094/categories/%E6%B5%8B%E8%AF%95/</guid>
         <description></description>
         </item>
         <item>
         <title>Syntax</title>
-        <link>http://localhost:12775/categories/syntax/</link>
+        <link>http://localhost:10094/categories/syntax/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/syntax/</guid>
+        <guid>http://localhost:10094/categories/syntax/</guid>
         <description></description>
         </item>
         <item>
         <title>Themes</title>
-        <link>http://localhost:12775/categories/themes/</link>
+        <link>http://localhost:10094/categories/themes/</link>
         <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/themes/</guid>
+        <guid>http://localhost:10094/categories/themes/</guid>
         <description></description>
         </item>
         <item>
         <title>Test With Whitespaces</title>
-        <link>http://localhost:12775/categories/test-with-whitespaces/</link>
+        <link>http://localhost:10094/categories/test-with-whitespaces/</link>
         <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
         
-        <guid>http://localhost:12775/categories/test-with-whitespaces/</guid>
+        <guid>http://localhost:10094/categories/test-with-whitespaces/</guid>
         <description></description>
         </item>
         

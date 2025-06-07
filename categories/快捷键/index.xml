@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>快捷键 on Lancelot</title>
-        <link>http://localhost:12775/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+        <link>http://localhost:10094/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
         <description>Recent content in 快捷键 on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Sat, 17 May 2025 21:46:57 +0800</lastBuildDate><atom:link href="http://localhost:12775/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 17 May 2025 21:46:57 +0800</lastBuildDate><atom:link href="http://localhost:10094/categories/%E5%BF%AB%E6%8D%B7%E9%94%AE/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>个人常用快捷键</title>
-        <link>http://localhost:12775/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+        <link>http://localhost:10094/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
         <pubDate>Sat, 17 May 2025 21:46:57 +0800</pubDate>
         
-        <guid>http://localhost:12775/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+        <guid>http://localhost:10094/p/%E4%B8%AA%E4%BA%BA%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
         <description>&lt;h2 id=&#34;idea快捷键&#34;&gt;IDEA快捷键
 &lt;/h2&gt;&lt;p&gt;Alt+S：开关vim&lt;/p&gt;
 &lt;p&gt;Alt+/：代码补全&lt;/p&gt;

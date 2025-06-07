@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>Git on Lancelot</title>
-        <link>http://localhost:12775/categories/git/</link>
+        <link>http://localhost:10094/categories/git/</link>
         <description>Recent content in Git on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Mon, 02 Jun 2025 20:17:20 +0800</lastBuildDate><atom:link href="http://localhost:12775/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 02 Jun 2025 20:17:20 +0800</lastBuildDate><atom:link href="http://localhost:10094/categories/git/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Learn Git Branching</title>
-        <link>http://localhost:12775/p/learn-git-branching/</link>
+        <link>http://localhost:10094/p/learn-git-branching/</link>
         <pubDate>Mon, 02 Jun 2025 20:17:20 +0800</pubDate>
         
-        <guid>http://localhost:12775/p/learn-git-branching/</guid>
+        <guid>http://localhost:10094/p/learn-git-branching/</guid>
         <description>&lt;blockquote&gt;
 &lt;p&gt;学习网站: &lt;a class=&#34;link&#34; href=&#34;https://learngitbranching.js.org/?locale=zh_CN&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;Learn Git Branching&lt;/a&gt;&lt;/p&gt;
@@ -201,11 +201,11 @@
         </item>
         <item>
         <title>Git 入门</title>
-        <link>http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/</link>
+        <link>http://localhost:10094/p/git-%E5%85%A5%E9%97%A8/</link>
         <pubDate>Thu, 08 May 2025 18:18:59 +0800</pubDate>
         
-        <guid>http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/</guid>
-        <description>&lt;img src="http://localhost:12775/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Zz4y1C7vg?vd_source=34f258c10dffd1ad2b0976714550c032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+        <guid>http://localhost:10094/p/git-%E5%85%A5%E9%97%A8/</guid>
+        <description>&lt;img src="http://localhost:10094/p/git-%E5%85%A5%E9%97%A8/images/test.jpg" alt="Featured image of post Git 入门" /&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.bilibili.com/video/BV1Zz4y1C7vg?vd_source=34f258c10dffd1ad2b0976714550c032&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;【2021年Git全集教程】大牛4小时带你精通Git玩转GitHub（最新版）_哔哩哔哩_bilibili&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.runoob.com/git/git-remote-repo.html&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
