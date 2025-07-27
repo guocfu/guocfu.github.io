@@ -2,34 +2,34 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title>编码 on Lancelot</title>
-        <link>http://localhost:10094/categories/%E7%BC%96%E7%A0%81/</link>
+        <link>http://localhost:12696/categories/%E7%BC%96%E7%A0%81/</link>
         <description>Recent content in 编码 on Lancelot</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-cn</language>
         <copyright>Lancelot</copyright>
-        <lastBuildDate>Sat, 07 Jun 2025 14:47:04 +0800</lastBuildDate><atom:link href="http://localhost:10094/categories/%E7%BC%96%E7%A0%81/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Sat, 07 Jun 2025 14:47:04 +0800</lastBuildDate><atom:link href="http://localhost:12696/categories/%E7%BC%96%E7%A0%81/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Java中的编码</title>
-        <link>http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/</link>
+        <link>http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/</link>
         <pubDate>Sat, 07 Jun 2025 14:47:04 +0800</pubDate>
         
-        <guid>http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/</guid>
+        <guid>http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/</guid>
         <description>&lt;h2 id=&#34;unicode字符集和utf编码&#34;&gt;Unicode字符集和UTF编码
 &lt;/h2&gt;&lt;blockquote&gt;
 &lt;p&gt;参考文章: &lt;a class=&#34;link&#34; href=&#34;https://zhuanlan.zhihu.com/p/546806312&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
     &gt;计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
-&lt;p&gt;Unicode字符集是一种统一的字符编号， &lt;strong&gt;仅仅提供字符与编号之间的映射关系&lt;/strong&gt;， 即每种字符有一个特定的编号， 但是该Unicode并未声明编码方式， 具体在计算机中保存需要将Unicode编号转换成特定的编码格式。&lt;/p&gt;
+&lt;p&gt;Unicode字符集是一种&lt;strong&gt;统一的字符编码标准&lt;/strong&gt;， &lt;strong&gt;仅仅提供字符与编号(码点)之间的映射关系&lt;/strong&gt;， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;**码点（Code Point）：**Unicode码点从0开始编号，每个字符分配唯一的码点，完整的十六进制格式是 &lt;code&gt;U+[XX]XXXX&lt;/code&gt;，具体可表示的范围为 &lt;code&gt;U+0000 ~ U+10FFFF&lt;/code&gt; （所需要的空间最大为 3 个字节的空间），例如 &lt;code&gt;U+0011&lt;/code&gt; 。这个范围可以容纳超过 100 万个字符，足够容纳目前全世界已创造的字符。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;字符平面（Plane）：&lt;/strong&gt; 这么多字符并不是一次性定义完成的，而是采用了分组的方式。每一个组称为一个**平面，**每个平面能够容纳 $2^{16}=65536$ 个字符。Unicode 一共定义了 17 个平面：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;基本多文种平面（Basic Multilingual Plane, BMP）：&lt;/strong&gt; 第一个平面包含最常用的通用字符&lt;code&gt;U+0000 ~ U+FFFF&lt;/code&gt;。当然，基本平面并不是填满的，而是刻意空出一段区域，这个我们下文再说。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;基本多文种平面（Basic Multilingual Plane, BMP）：&lt;/strong&gt; 第一个平面包含最常用的通用字符&lt;code&gt;U+0000 ~ U+FFFF&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;辅助平面（Supplementary Plane）：&lt;/strong&gt; 剩下的 16 个平面&lt;code&gt;U+010000~U+10FFFF&lt;/code&gt;，包含多种语言的字符&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;辅助平面（Supplementary Plane）：&lt;/strong&gt; 剩下的 16 个平面&lt;code&gt;U+010000~U+10FFFF&lt;/code&gt;，包含多种语言的字符。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;&lt;/blockquote&gt;
-&lt;p&gt;常见到的有 3 种编码格式：UTF-8、UTF-16 和 UTF-32。UTF是英文 Unicode Transformation Format 的缩写， 是英文 Unicode Transformation Format 的缩写。&lt;/p&gt;
+&lt;p&gt;常见的编码格式有：UTF-8、UTF-16 和 UTF-32。UTF是英文 Unicode Transformation Format 的缩写， 是英文 Unicode Transformation Format 的缩写。&lt;/p&gt;
 &lt;p&gt;UTF的各种编码只是对Unicode字符标准使用不同的编码方式。举个例子，字符 A 的 Unicode 码点和编码如下：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1、图像：A&lt;/li&gt;
@@ -40,7 +40,7 @@
 &lt;/ul&gt;
 &lt;p&gt;对UTF-8、UTF-16 和 UTF-32 的编码规则进行解码后，得到的结果都是0x41。&lt;/p&gt;
 &lt;h3 id=&#34;utf-32编码&#34;&gt;UTF-32编码
-&lt;/h3&gt;&lt;p&gt;UTF-32使用4字节的定长编码，足以容纳所有的Unicode码点，虽然编解码规则简单，效率快，但是太浪费存储空间&lt;/p&gt;
+&lt;/h3&gt;&lt;p&gt;UTF-32使用&lt;strong&gt;4字节的定长编码&lt;/strong&gt;，足以容纳所有的Unicode码点，虽然编解码规则简单，效率快，但是太浪费存储空间&lt;/p&gt;
 &lt;h3 id=&#34;utf-16编码&#34;&gt;UTF-16编码
 &lt;/h3&gt;&lt;p&gt;&lt;strong&gt;UTF-16 是 2 个字节或 4 个字节的变长编码&lt;/strong&gt;，结合了 UTF-8 和 UTF-32 两者的特点&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;基本平面的码点&lt;/strong&gt;（编号范围在 &lt;code&gt;U+0000 ~ U+FFFF&lt;/code&gt;）使用 &lt;strong&gt;2 个字节&lt;/strong&gt;表示。辅助平面的码点（编号范围在 &lt;code&gt;U+10000 ~ U+10FFFF&lt;/code&gt; 的码点）使用 4 个字节表示。&lt;/p&gt;
@@ -53,10 +53,10 @@
 &lt;/ul&gt;
 &lt;p&gt;这种编码方式是不会存在前缀歧义的，也比较好理解。UTF8编码中，英文字符占用一个字节，绝大多数汉字占用三个字节，个别汉字占用四个字节。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;UTF-8编码举例&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w.jpg&#34;
+&lt;p&gt;&lt;img src=&#34;http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w.jpg&#34;
 	width=&#34;1240&#34;
 	height=&#34;269&#34;
-	srcset=&#34;http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w_hu_d78a39a830fc4a96.jpg 480w, http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w_hu_1d88cb5b9c410b41.jpg 1024w&#34;
+	srcset=&#34;http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w_hu_d78a39a830fc4a96.jpg 480w, http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/images/v2-3e338d8b1a3e4d0d7f7073622f1755bf_1440w_hu_1d88cb5b9c410b41.jpg 1024w&#34;
 	loading=&#34;lazy&#34;
 	
 		alt=&#34;img&#34;

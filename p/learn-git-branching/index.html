@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=10094&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=13293&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n红图是目标结果, 蓝图是初始状态\n">
 <title>Learn Git Branching</title>
 
-<link rel='canonical' href='http://localhost:10094/p/learn-git-branching/'>
+<link rel='canonical' href='http://localhost:13293/p/learn-git-branching/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Learn Git Branching">
-<meta property='og:description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
-<meta property='og:url' content='http://localhost:10094/p/learn-git-branching/'>
+<meta property='og:description' content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n红图是目标结果, 蓝图是初始状态\n">
+<meta property='og:url' content='http://localhost:13293/p/learn-git-branching/'>
 <meta property='og:site_name' content='Lancelot'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-02T20:17:20&#43;08:00'/><meta property='article:modified_time' content='2025-06-02T20:17:20&#43;08:00'/>
 <meta name="twitter:title" content="Learn Git Branching">
-<meta name="twitter:description" content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n1.git commit git commit修改了代码库, 把这些修改保存成了一个提交记录C2。C2的父节点是C1，父节点是当前提交中变更的基础。\n">
+<meta name="twitter:description" content=" 学习网站: Learn Git Branching\n参考笔记: git学习笔记 - 知乎\n主要 基础篇 循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase\n红图是目标结果, 蓝图是初始状态\n">
     </head>
     <body class="
     article-page
@@ -279,6 +279,31 @@
       </ol>
     </li>
   </ol>
+
+  <ol>
+    <li><a href="#pushpullgit远程仓库">Push&amp;Pull&ndash;Git远程仓库</a>
+      <ol>
+        <li><a href="#1git-clone">1.git clone</a></li>
+        <li><a href="#2远程分支">2.远程分支</a></li>
+        <li><a href="#3git-fetch">3.git fetch</a>
+          <ol>
+            <li><a href="#题目">题目</a></li>
+          </ol>
+        </li>
+        <li><a href="#4git-pull">4.git pull</a>
+          <ol>
+            <li><a href="#题目-1">题目</a></li>
+          </ol>
+        </li>
+        <li><a href="#5模拟团队合作">5.模拟团队合作</a></li>
+        <li><a href="#6git-push">6.git push</a>
+          <ol>
+            <li><a href="#题目-2">题目</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
 </nav>
         </div>
     </section>
@@ -342,7 +367,7 @@
 
 
                 <time class="article-time--reading">
-                    阅读时长: 5 分钟
+                    阅读时长: 9 分钟
                 </time>
             </div>
         
@@ -365,11 +390,12 @@
 <h1 id="主要">主要
 </h1><h2 id="基础篇">基础篇
 </h2><blockquote>
-<p>循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase</p></blockquote>
+<p>循序渐进地介绍Git主要命令：git commit; git branch; git merge; git rebase</p>
+<p><strong>红图是目标结果, 蓝图是初始状态</strong></p></blockquote>
 <h3 id="1git-commit">1.git commit
 </h3><p><code>git commit</code><strong>修改了代码库, 把这些修改保存成了一个提交记录</strong>C2。C2的父节点是C1，父节点是当前提交中变更的基础。</p>
 <p><strong>题目:提交两次修改</strong></p>
-<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w.jpg" alt="img" style="zoom: 80%;" />
+<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w-174886712037014.jpg" alt="img" style="zoom: 80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -386,7 +412,7 @@
 <p><code>git checkout &lt;newImage&gt;</code><strong>切换到分支newImage上</strong></p>
 <p><code>git checkout -b &lt;branch name&gt;</code><strong>创建一个新分支并切换过去</strong></p>
 <p>**题目：**创建一个名为bugFix的新分支，然后切换过去。（有更简洁的方式：想创建一个新的分支同时切换到新创建的分支的话，可以通过git checkout -b &lt;your branch name&gt;来实现）</p>
-<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w-17488485245532.jpg" alt="img" style="zoom:80%;" />
+<img src="images/v2-6ba4473b3d8544f7c0798d022271cf0c_720w-17488485245532-174886712037719.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -402,7 +428,7 @@
 </div><h3 id="3git-merge">3.git merge
 </h3><p><code>git merge &lt;bugFix&gt;</code>(当前分支为main)把bugFix<strong>合并到当前分支</strong>(main)中, 并生成新的提交记录, 该提交记录以上面两个提交记录为父节点</p>
 <p><strong>题目：</strong></p>
-<img src="images/v2-b04e3e9d3381ed5691c57873babb60fd_720w.jpg" alt="img" style="zoom:80%;" />
+<img src="images/v2-b04e3e9d3381ed5691c57873babb60fd_720w-174886712037115.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -423,9 +449,9 @@
 </h3><p>第二种合并方法：<code>git rebase </code>。rebase实际上就是取出一系列的提交记录，“复制”题目，然后再另外一个地方逐个的放下去。</p>
 <p>rebase的优势就是可以创造更线性的提交历史，如果只允许使用rebase的话，代码库的提交历史将会变得异常清晰。</p>
 <p>(当前分支为bugFix)输入<code>git rebase &lt;main&gt;</code><strong>将bugFix记录的副本复制到main下面</strong>, 原本的提交记录仍存在</p>
-<p><code>git checkout main; git rebase bugFix</code>将main分支rebase到bugFix上(<strong>main和bugFix此时指向同一个提交记录, 即原bugFIx的副本</strong>)</p>
+<p><code>git checkout main; git rebase bugFix</code>将main分支rebase到bugFix上(<strong>main和bugFix此时指向同一个提交记录, 即原bugFix的副本</strong>)</p>
 <p><strong>题目:</strong></p>
-<img src="images/v2-d7a55ff6e2e7dd982ca494a72ec8fc59_720w.jpg" alt="img" style="zoom:80%;" />
+<img src="images/v2-d7a55ff6e2e7dd982ca494a72ec8fc59_720w-174886712037116.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -482,7 +508,7 @@
 <p>1.使用<code>^</code>向上移动1个提交记录</p>
 <p>2.使用<code>~&lt;num&gt;</code>向上移动多个提交记录，如~3</p>
 <p>**题目: **要完成此关，移动HEAD，main和bugFix到目标所示的位置。</p>
-<img src="images/v2-a72b7a42eb8db8579bcac0c0319e8748_720w.jpg" alt="img" style="zoom:80%;" />
+<img src="images/v2-a72b7a42eb8db8579bcac0c0319e8748_720w-174886712037117.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -516,7 +542,7 @@
 </div>
 </div><p>Git把main分支移回到C1；现在我们的本地代码库根本就不知道有C2这个提交了。（在reset后，C2所做的变更还在，但是处于未加入暂存区状态。）</p>
 <p><strong>Git Revert</strong></p>
-<p>git reset对远程分支无效, git revert在要撤销的记录C2后多出一个新提交记录C2&rsquo;, 该记录表示的就是撤销上一个提交记录C2, 也就是说 C2&rsquo; 的状态与 C1 是相同的. 如果C2后边还有C3,C4等等提交，C3,C4的修改不会动，仅仅是撤销C2的这次提交修改的内容！并在C4后边生成新的提交（撤销C2的修改）。</p>
+<p><strong>git reset对远程分支无效</strong>, <strong>git revert在要撤销的记录C2后多出一个新提交记录C2&rsquo;, 该记录表示的就是撤销上一个提交记录C2</strong>, 也就是说 C2&rsquo; 的状态与 C1 是相同的. 如果C2后边还有C3,C4等等提交，C3,C4的修改不会动，仅仅是撤销C2的这次提交修改的内容！并在C4后边生成新的提交（撤销C2的修改）。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -528,7 +554,7 @@
 </div><p><strong>题目：</strong></p>
 <p>要完成此关，分别撤销 local 分支和 pushed 分支上的最近一次提交。共需要撤销两个提交（每个分支一个）。
 记住 pushed 是远程分支，local 是本地分支。</p>
-<img src="images/v2-35986692e93b6f469210ecc07b0cdbaf_720w.jpg" alt="img" style="zoom:80%;" />
+<img src="images/v2-35986692e93b6f469210ecc07b0cdbaf_720w-174886712037118.jpg" alt="img" style="zoom:80%;" />
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -539,6 +565,198 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git reset HEAD^     //撤销本地分支用reset 
 </span></span><span class="line"><span class="cl">git checkout pushed  
 </span></span><span class="line"><span class="cl">git revert HEAD     //撤销远程分支用revert
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="远程">远程
+</h1><h2 id="pushpullgit远程仓库">Push&amp;Pull&ndash;Git远程仓库
+</h2><h3 id="1git-clone">1.git clone
+</h3><p>git clone 命令在真实的环境下的作用是在本地创建一个远程仓库的拷贝（比如从 <a class="link" href="http://link.zhihu.com/?target=http%3A//github.com"  target="_blank" rel="noopener"
+    >http://github.com</a>）。(但在learn git branching模拟的场景中是在远程仓库创建一个本地仓库的拷贝)</p>
+<h3 id="2远程分支">2.远程分支
+</h3><p>在我们的本地仓库多了一个名为 origin/master 的分支, 这种类型的分支就叫远程分支。远程分支有一个特别的属性，在你检出时自动进入分离 HEAD 状态。
+Git 这么做是出于不能直接在这些分支上进行操作的原因, 你必须在别的地方完成你的工作, （更新了远程分支之后）再用远程分享你的工作成果。</p>
+<p>你可能想问这些远程分支的前面的o/是什么意思呢？好吧，远程分支有一个命名规范——它们的格式是： <remote name>/<branch name></p>
+<p>因此，如果你看到一个名为 o/main的分支，那么这个分支就叫 main，远程仓库的名称就是o。大多数的开发人员会将它们主要的远程仓库命名为origin，并不是o。这是因为当你用 git clone某个仓库时，Git 已经帮你把远程仓库的名称设置为 origin了。</p>
+<p>说了这么多，让我们看看实例。</p>
+<p><img src="/p/images/v2-ec270bffdba29fdb8bfdc8173e5a6be6_720w.jpg"
+	width="343"
+	height="230"
+	srcset="/p/images/v2-ec270bffdba29fdb8bfdc8173e5a6be6_720w_hu_5b141ccd7ae7b5f0.jpg 480w, /p/images/v2-ec270bffdba29fdb8bfdc8173e5a6be6_720w_hu_5ba64c1db029dec0.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="149"
+		data-flex-basis="357px"
+	
+></p>
+<p>如果检出远程分支会怎么样呢？</p>
+<p>输入<code>git checkout origin/master、git commit</code></p>
+<p><img src="/p/images/v2-e3414a7c0cf1e424a92c4701edccc283_720w.jpg"
+	width="338"
+	height="388"
+	srcset="/p/images/v2-e3414a7c0cf1e424a92c4701edccc283_720w_hu_ce8b38a4479f0189.jpg 480w, /p/images/v2-e3414a7c0cf1e424a92c4701edccc283_720w_hu_9aec0035565de128.jpg 1024w"
+	loading="lazy"
+	
+		alt="img"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="87"
+		data-flex-basis="209px"
+	
+></p>
+<p>正如你所见，Git 变成了分离 HEAD 状态，当添加新的提交时 origin/master 也不会更新。这是因为 origin/master 只有在远程仓库中相应的分支更新了以后才会更新。(好像需要git push origin/master才会更新)</p>
+<p><strong>题目：</strong></p>
+<p>要通过本关，在main分支上做一次提交，然后检出o/main，再做一次提交，这有助于理解远程分支的不同，他们的更新只是反映了远程的状态。</p>
+<p><img src="/p/images/image-20250727120923869.png"
+	width="1205"
+	height="735"
+	srcset="/p/images/image-20250727120923869_hu_c81812e9aeb869f0.png 480w, /p/images/image-20250727120923869_hu_c7c44b2c89c60ae5.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250727120923869"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="163"
+		data-flex-basis="393px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit 
+</span></span><span class="line"><span class="cl">git checkout o/main 
+</span></span><span class="line"><span class="cl">git commit
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3git-fetch">3.git fetch
+</h3><p>Git 远程仓库相当的操作实际可以归纳为两点：向远程仓库传输数据以及从远程仓库获取数据。既然我们能与远程仓库同步，那么就可以分享任何能被 Git 管理的更新（因此可以分享代码、文件、想法、情书等等）。</p>
+<p>本节课我们将学习如何从远程仓库获取数据－命令如其名，它就是 <code>git fetch</code></p>
+<p>你会看到当我们从远程仓库获取数据时，远程分支也会更新以反映最新的远程仓库。在上一节课程中我们已经提及过这一点了。</p>
+<p>在解释 git fetch前，我们先看看实例。这里我们有一个远程仓库，它有两个我们本地仓库中没有的提交。</p>
+<img src="images/image-20250727121142653.png" alt="image-20250727121142653" style="zoom: 80%;" />
+<p>输入 <code>git fetch</code></p>
+<p><code>C2</code>,<code>C3</code> 被下载到了本地仓库，同时远程分支 <code>o/main</code> 也被更新，反映到了这一变化</p>
+<img src="images/image-20250727121237601.png" alt="image-20250727121237601" style="zoom:80%;" />
+<p>####git fetch 做了些什么</p>
+<p><code>git fetch</code> 完成了仅有的但是很重要的两步:</p>
+<ul>
+<li>从远程仓库下载本地仓库中缺失的提交记录</li>
+<li>更新远程分支指针(如 <code>o/main</code>)</li>
+</ul>
+<p><code>git fetch</code> 实际上将本地仓库中的远程分支更新成了远程仓库相应分支最新的状态。</p>
+<p>如果你还记得上一节课程中我们说过的，远程分支反映了远程仓库在你<strong>最后一次与它通信时</strong>的状态，<code>git fetch</code> 就是你与远程仓库通信的方式了！希望我说的够明白了，你已经了解 <code>git fetch</code> 与远程分支之间的关系了吧。</p>
+<p><code>git fetch</code> 通常通过互联网（使用 <code>http://</code> 或 <code>git://</code> 协议) 与远程仓库通信</p>
+<p>####git fetch 不会做的事</p>
+<p><code>git fetch</code> 并不会改变你本地仓库的状态。它不会更新你的 <code>main</code> 分支，也不会修改你磁盘上的文件。</p>
+<p>理解这一点很重要，因为许多开发人员误以为执行了 <code>git fetch</code> 以后，他们本地仓库就与远程仓库同步了。它可能已经将进行这一操作所需的所有数据都下载了下来，但是<strong>并没有</strong>修改你本地的文件。我们在后面的课程中将会讲解能完成该操作的命令 :D</p>
+<p>所以, 你可以将 <code>git fetch</code> 的理解为单纯的下载操作。</p>
+<h4 id="题目">题目
+</h4><p><img src="/p/images/image-20250727121524697.png"
+	width="1316"
+	height="741"
+	srcset="/p/images/image-20250727121524697_hu_9a2e3be3d6325fae.png 480w, /p/images/image-20250727121524697_hu_aef0ff238fb669fb.png 1024w"
+	loading="lazy"
+	
+		alt="image-20250727121524697"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="177"
+		data-flex-basis="426px"
+	
+></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git fetch
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="4git-pull">4.git pull
+</h3><p>既然我们已经知道了如何<strong>用 <code>git fetch</code> 获取远程的数据</strong>, 现在我们学习<strong>如何将这些变化更新到我们的工作当中。</strong></p>
+<p>其实有很多方法的 —— 当远程分支中有新的提交时，你可以像合并本地分支那样来合并远程分支。也就是说就是你可以执行以下命令:</p>
+<ul>
+<li><code>git cherry-pick o/main</code></li>
+<li><code>git rebase o/main</code></li>
+<li><code>git merge o/main</code></li>
+<li>等等</li>
+</ul>
+<p>实际上，由于先抓取更新再合并到本地分支这个流程很常用，因此 Git 提供了一个专门的命令来完成这两个操作。它就是我们要讲的 <code>git pull</code>。</p>
+<p>我们先来看看 <code>fetch</code>、<code>merge</code> 依次执行的效果</p>
+<img src="images/image-20250727140539853.png" alt="image-20250727140539853" style="zoom:80%;" />
+<p>```git fetch; git merge o/main`</p>
+<img src="images/image-20250727140712223.png" alt="image-20250727140712223" style="zoom:80%;" />
+<blockquote>
+<p>我们用 <code>fetch</code> 下载了 <code>C3</code>, 然后通过 <code>git merge o/main</code> 合并了这一提交记录。现在我们的 <code>main</code> 分支包含了远程仓库中的更新（在本例中远程仓库名为 <code>origin</code>）</p></blockquote>
+<p><strong><code>git pull</code> 就是 git fetch 和 git merge 的缩写！</strong></p>
+<h4 id="题目-1">题目
+</h4><img src="images/image-20250727141242445.png" alt="image-20250727141242445" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git pull
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="5模拟团队合作">5.模拟团队合作
+</h3><p>克隆一个远程仓库（用 <code>git clone</code>），再在刚创建的远程仓库中模拟一些修改，然后在你自己的本地分支上做一些提交，再拉取远程仓库的变更。这看起来像是包含了好几节的课程。</p>
+<img src="images/image-20250727141659192.png" alt="image-20250727141659192" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone   //local branch <span class="s2">&#34;master&#34;</span> <span class="nb">set</span> to track remote branch <span class="s2">&#34;o/master&#34;</span> 
+</span></span><span class="line"><span class="cl">git fakeTeamwork main <span class="m">2</span> // 模拟环境虚构的命令, 在远程仓库的main分支上做n次提交。
+</span></span><span class="line"><span class="cl">git commit 
+</span></span><span class="line"><span class="cl">git fetch 
+</span></span><span class="line"><span class="cl">git merge o/main // 最后两行可以直接用git pull替换
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="6git-push">6.git push
+</h3><p><code>git push</code> 负责将<strong>你的</strong>变更上传到指定的远程仓库，并在远程仓库上合并你的新提交记录。一旦 <code>git push</code> 完成, 你的朋友们就可以从这个远程仓库下载你分享的成果了！</p>
+<p>你可以将 <code>git push</code> 想象成发布你成果的命令。它有许多应用技巧，稍后我们会了解到，但是咱们还是先从基础的开始吧……</p>
+<p><em>注意 —— <code>git push</code> 不带任何参数时的行为与 Git 的一个名为 <code>push.default</code> 的配置有关。它的默认值取决于你正使用的 Git 的版本，但是在教程中我们使用的是 <code>upstream</code>。 这没什么太大的影响，但是在你的项目中进行推送之前，最好检查一下这个配置。</em></p>
+<p>这里我们准备了一些远程仓库中没有的提交记录, 咱们开始先上传吧!</p>
+<center><img src="images/image-20250727142330742.png" alt="image-20250727142330742" style="zoom:80%;" /></center>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git push
+</span></span></code></pre></td></tr></table>
+</div>
+</div><center><img src="images/image-20250727142354601.png" alt="image-20250727142354601" style="zoom:80%;" /</center>
+<blockquote>
+<p>过去了, 远程仓库接收了 <code>C2</code>，远程仓库中的 <code>main</code> 分支也被更新到指向 <code>C2</code> 了，我们的远程分支 (o/main) 也同样被更新了。所有的分支都同步了</p></blockquote>
+<h4 id="题目-2">题目
+</h4><img src="images/image-20250727142458176.png" alt="image-20250727142458176" style="zoom:80%;" />
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git commit
+</span></span><span class="line"><span class="cl">git commit
+</span></span><span class="line"><span class="cl">git push
 </span></span></code></pre></td></tr></table>
 </div>
 </div>

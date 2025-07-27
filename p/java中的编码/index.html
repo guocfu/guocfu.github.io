@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-cn" dir="ltr">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=10094&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=12696&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号(码点)之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
 <title>Java中的编码</title>
 
-<link rel='canonical' href='http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/'>
+<link rel='canonical' href='http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/'>
 
 <link rel="stylesheet" href="/scss/style.min.663803bebe609202d5b39d848f2d7c2dc8b598a2d879efa079fa88893d29c49c.css"><meta property='og:title' content="Java中的编码">
-<meta property='og:description' content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
-<meta property='og:url' content='http://localhost:10094/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/'>
+<meta property='og:description' content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号(码点)之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
+<meta property='og:url' content='http://localhost:12696/p/java%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81/'>
 <meta property='og:site_name' content='Lancelot'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2025-06-07T14:47:04&#43;08:00'/><meta property='article:modified_time' content='2025-06-07T14:47:04&#43;08:00'/>
 <meta name="twitter:title" content="Java中的编码">
-<meta name="twitter:description" content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
+<meta name="twitter:description" content="Unicode字符集和UTF编码 参考文章: 计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎\nUnicode字符集是一种统一的字符编码标准， 仅仅提供字符与编号(码点)之间的映射关系， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。\n">
     </head>
     <body class="
     article-page
@@ -349,7 +349,7 @@
 </h2><blockquote>
 <p>参考文章: <a class="link" href="https://zhuanlan.zhihu.com/p/546806312"  target="_blank" rel="noopener"
     >计算机基础：今天一次把 Unicode 和 UTF-8 说清楚 - 知乎</a></p></blockquote>
-<p>Unicode字符集是一种<strong>统一的字符编码标准</strong>， <strong>仅仅提供字符与编号之间的映射关系</strong>， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。</p>
+<p>Unicode字符集是一种<strong>统一的字符编码标准</strong>， <strong>仅仅提供字符与编号(码点)之间的映射关系</strong>， 即每种字符有一个特定的编号， 但是Unicode并未声明编码方式， 计算机存储字符需要将Unicode编号转换成特定的编码格式。</p>
 <blockquote>
 <p>**码点（Code Point）：**Unicode码点从0开始编号，每个字符分配唯一的码点，完整的十六进制格式是 <code>U+[XX]XXXX</code>，具体可表示的范围为 <code>U+0000 ~ U+10FFFF</code> （所需要的空间最大为 3 个字节的空间），例如 <code>U+0011</code> 。这个范围可以容纳超过 100 万个字符，足够容纳目前全世界已创造的字符。</p>
 <p><strong>字符平面（Plane）：</strong> 这么多字符并不是一次性定义完成的，而是采用了分组的方式。每一个组称为一个**平面，**每个平面能够容纳 $2^{16}=65536$ 个字符。Unicode 一共定义了 17 个平面：</p>
