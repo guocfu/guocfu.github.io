@@ -15,7 +15,8 @@ blog:
  pageSize: 12
  # 设置作者信息
  author: Lancelot
- logo: /public/logo.jpg
+ logo: /logo.jpg
+ avatarMode: card
  # 移动端隐藏头部头像展示
  # minScreenAvatar: false
 ---

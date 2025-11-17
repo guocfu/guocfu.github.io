@@ -33,7 +33,7 @@ public class Demo01Scanner {
 
 运行结果如图:
 
-![image-20250510130140978](../public/images/image-20250510130140978.png)
+![image-20250510130140978](./images/image-20250510130140978.png)
 
 第一个单词Hello前输入了四个空格，一个Tab符和一个换行符，都被next()忽略了，Hello后面的换行符被next()视为结束符,第一次读取结束，并且换行符仍遗留在缓冲区中。
 
@@ -65,7 +65,7 @@ public class Demo01Scanner {
 
 运行结果如图：
 
-![img](../public/images/image-20250510140349176.png)
+![img](./images/image-20250510140349176.png)
 
 Hello World之前有四个空格和一个Tab符都被nextLine读取了，而第二次输入时直接输入Enter，因此nextLine未读取到任何字符。
 
@@ -94,7 +94,7 @@ public class Demo01Scanner {
 
 运行结果如图：
 
-![image-20250510141501815](../public/images/image-20250510141501815.png)
+![image-20250510141501815](./images/image-20250510141501815.png)
 
 由于next()读取Hello后换行符仍保留在缓冲区，因此nextLine()检测到换行符会直接结束读取，str2的值为空白。
 
@@ -119,7 +119,7 @@ public class Demo01Scanner {
 }
 ```
 
-![img](../public/images/image-20250510141838917.png)
+![img](./images/image-20250510141838917.png)
 
 > nextDouble() 、nextFloat()、nextInt() 等方法特性与next()方法一致
 

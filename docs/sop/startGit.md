@@ -118,7 +118,7 @@ git add test2.txt
 
 在版本控制中，使用多条线同时推进多个任务，这里面的多条线就是多个分支。
 
-![image-20210417105237295](file:///C:/%5cUsers%5cShinelon%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20210417105237295.png)
+
 
 同时多个分支可以并行开发，互不影响，提高开发效率
 
