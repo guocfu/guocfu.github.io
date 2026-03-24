@@ -2386,6 +2386,356 @@ class Solution {
 ### x排序链表（中等）
 
 > [148. 排序链表 - 力扣（LeetCode）](https://leetcode.cn/problems/sort-list/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你链表的头结点 `head` ，请将其按 **升序** 排列并返回 **排序后的链表** 。
+>
+> 
+>
+> **示例 1：**
+>
+> ![img](./images/sort_list_1.jpg)
+>
+> ```
+> 输入：head = [4,2,1,3]
+> 输出：[1,2,3,4]
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/sort_list_2.jpg)
+>
+> ```
+> 输入：head = [-1,5,3,4,0]
+> 输出：[-1,0,3,4,5]
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：head = []
+> 输出：[]
+> ```
+>
+> 
+>
+> **提示：**
+>
+> - 链表中节点的数目在范围 `[0, 5 * 104]` 内
+> - `-105 <= Node.val <= 105`
+>
+> 
+>
+> **进阶：**你可以在 `O(n log n)` 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
+
+
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    // 归并排序（递归法）
+    public ListNode sortList(ListNode head) {
+        if(head==null || head.next==null)    return head; // 必须有head.next==null，否则只有一个节点的时候sortList将会一直递归下去
+        ListNode mid = findMiddle(head); // 找到中间节点(右部分的头节点)
+        ListNode leftHead = sortList(head);
+        ListNode rightHead = sortList(mid); // 分别将左右部分排序
+        return merge(leftHead, rightHead);
+    }
+
+    ListNode findMiddle(ListNode head){
+        ListNode dummyHead = new ListNode(-1, head);
+        ListNode slow = dummyHead, fast = dummyHead;
+        while(fast.next!=null && fast.next.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode rightHead = slow.next;
+        slow.next = null;
+        return rightHead;
+    }
+    // 递归实现合并
+    ListNode merge(ListNode left, ListNode right){
+        ListNode dummyHead = new ListNode(-1);
+        ListNode tail = dummyHead;
+        // 尾插法保证顺序不变
+        while(left != null && right != null){
+            if(left.val < right.val){
+                tail.next = left;
+                left = left.next;
+
+            }else{
+                tail.next = right;
+                right = right.next;
+            }
+            tail = tail.next;
+            tail.next = null;
+        }
+        if(left!=null) tail.next = left;
+        else            tail.next = right;
+        return dummyHead.next;
+    }
+}
+```
+
+### *合并k个升序链表（困难）
+
+> [23. 合并 K 个升序链表 - 力扣（LeetCode）](https://leetcode.cn/problems/merge-k-sorted-lists/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个链表数组，每个链表都已经按升序排列。
+>
+> 请你将所有链表合并到一个升序链表中，返回合并后的链表。
+>
+> 
+>
+> **示例 1：**
+>
+> ```
+> 输入：lists = [[1,4,5],[1,3,4],[2,6]]
+> 输出：[1,1,2,3,4,4,5,6]
+> 解释：链表数组如下：
+> [
+> 1->4->5,
+> 1->3->4,
+> 2->6
+> ]
+> 将它们合并到一个有序链表中得到。
+> 1->1->2->3->4->4->5->6
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：lists = []
+> 输出：[]
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：lists = [[]]
+> 输出：[]
+> ```
+>
+> 
+>
+> **提示：**
+>
+> - `k == lists.length`
+> - `0 <= k <= 10^4`
+> - `0 <= lists[i].length <= 500`
+> - `-10^4 <= lists[i][j] <= 10^4`
+> - `lists[i]` 按 **升序** 排列
+> - `lists[i].length` 的总和不超过 `10^4`
+
+```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    // 使用优先队列（小根堆）保存非空链表的头结点
+    public ListNode mergeKLists(ListNode[] lists) {
+        PriorityQueue<ListNode> pq = new PriorityQueue<>( (a,b)-> a.val-b.val); // 小根堆
+        for(ListNode head: lists){
+            if(head!=null){
+                pq.offer(head);  // 把所有非空链表的头结点入堆
+            }
+        }
+        ListNode dummyHead = new ListNode(-1);
+        ListNode tail = dummyHead;
+        while(!pq.isEmpty()){  // 循环一直到堆空
+            ListNode node = pq.poll();
+            if(node.next != null){  // 下一个结点不为空
+                pq.offer(node.next);
+            }
+            tail.next = node;
+            tail = tail.next;
+        }
+        return dummyHead.next;
+        
+    }
+}
+```
+
+### LRU缓存（中等）
+
+> [146. LRU 缓存 - 力扣（LeetCode）](https://leetcode.cn/problems/lru-cache/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 请你设计并实现一个满足 [LRU (最近最少使用) 缓存](https://baike.baidu.com/item/LRU) 约束的数据结构。
+>
+> 实现 `LRUCache` 类：
+>
+> - `LRUCache(int capacity)` 以 **正整数** 作为容量 `capacity` 初始化 LRU 缓存
+> - `int get(int key)` 如果关键字 `key` 存在于缓存中，则返回关键字的值，否则返回 `-1` 。
+> - `void put(int key, int value)` 如果关键字 `key` 已经存在，则变更其数据值 `value` ；如果不存在，则向缓存中插入该组 `key-value` 。如果插入操作导致关键字数量超过 `capacity` ，则应该 **逐出** 最久未使用的关键字。
+>
+> 函数 `get` 和 `put` 必须以 `O(1)` 的平均时间复杂度运行。
+>
+> 
+>
+> **示例：**
+>
+> ```shell
+> 输入
+> ["LRUCache", "put", "put", "get", "put", "get", "put", "get", "get", "get"]
+> [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]
+> 输出
+> [null, null, null, 1, null, -1, null, -1, 3, 4]
+> 
+> 解释
+> LRUCache lRUCache = new LRUCache(2);
+> lRUCache.put(1, 1); // 缓存是 {1=1}
+> lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
+> lRUCache.get(1);    // 返回 1
+> lRUCache.put(3, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+> lRUCache.get(2);    // 返回 -1 (未找到)
+> lRUCache.put(4, 4); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
+> lRUCache.get(1);    // 返回 -1 (未找到)
+> lRUCache.get(3);    // 返回 3
+> lRUCache.get(4);    // 返回 4
+> ```
+>
+> 
+>
+> **提示：**
+>
+> - `1 <= capacity <= 3000`
+> - `0 <= key <= 10000`
+> - `0 <= value <= 105`
+> - 最多调用 `2 * 105` 次 `get` 和 `put`
+
+```java
+class LRUCache {
+    private final int capacity;
+    private final Map<Integer, Integer> cache = new LinkedHashMap<>();  // 内置LRU, LinkedHashMap可以保持元素的插入顺序
+    public LRUCache(int capacity) {
+        this.capacity = capacity;
+    }
+    
+    public int get(int key) {
+        // 删除key，并利用返回值(key的value)判断key是否在cache中
+        Integer value = cache.remove(key);
+        if(value != null){
+            // 如果key在cache中
+            cache.put(key, value); // 将key重新插入到cache中，刷新插入顺序
+            return value;
+        }
+        return -1; // key不在cache中
+    }
+    
+    public void put(int key, int value) {
+        // 删除key，并利用返回值判断key是否在cache中
+        if(cache.remove(key) != null){ // key在cache中，说明不需要再占用一个空间了
+            cache.put(key, value);
+            return;
+        }
+        // key 不在 cache 中，那么就把 key 插入 cache，插入前判断 cache 是否满了
+        if(cache.size() == capacity){
+            Integer eldestKey = cache.keySet().iterator().next();
+            cache.remove(eldestKey);
+        }
+        cache.put(key, value);
+    }
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
+```
+
+## 二叉树
+
+### 对称二叉树
+
+> [101. 对称二叉树 - 力扣（LeetCode）](https://leetcode.cn/problems/symmetric-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个二叉树的根节点 `root` ， 检查它是否轴对称。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/1698026966-JDYPDU-image.png)
+>
+> ```
+> 输入：root = [1,2,2,3,4,4,3]
+> 输出：true
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/1698027008-nPFLbM-image.png)
+>
+> ```
+> 输入：root = [1,2,2,null,3,null,3]
+> 输出：false
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目在范围 `[1, 1000]` 内
+> - `-100 <= Node.val <= 100`
+>
+>  
+>
+> **进阶：**你可以运用递归和迭代两种方法解决这个问题吗？
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    // 递归比较左右两个子树是否对称
+    public boolean isSymmetric(TreeNode root) {
+        if(root==null) return true;
+        return recur(root.left, root.right);  // 判断两个节点是否是对称节点
+    }
+
+    private boolean recur(TreeNode left, TreeNode right){
+        if(left==null && right==null) return true;
+        if(left== null || right==null || left.val!=right.val)   return false;
+        return recur(left.left, right.right) && recur(left.right, right.left);
+    }
+}
+
+// 注意比较的是val，不能直接用==比较两个结点
+// 错误代码：
+// if(a!=b)    return false; // 不能直接用==比较，而是比较val
+// if(a==null) return true;
+```
+
+
 
 ## 动态规划
 
