@@ -2389,7 +2389,7 @@ class Solution {
 >
 > 给你链表的头结点 `head` ，请将其按 **升序** 排列并返回 **排序后的链表** 。
 >
-> 
+>  
 >
 > **示例 1：**
 >
@@ -2416,14 +2416,14 @@ class Solution {
 > 输出：[]
 > ```
 >
-> 
+>  
 >
 > **提示：**
 >
 > - 链表中节点的数目在范围 `[0, 5 * 104]` 内
 > - `-105 <= Node.val <= 105`
 >
-> 
+>  
 >
 > **进阶：**你可以在 `O(n log n)` 时间复杂度和常数级空间复杂度下，对链表进行排序吗？
 
@@ -2493,7 +2493,7 @@ class Solution {
 >
 > 请你将所有链表合并到一个升序链表中，返回合并后的链表。
 >
-> 
+>  
 >
 > **示例 1：**
 >
@@ -2502,9 +2502,9 @@ class Solution {
 > 输出：[1,1,2,3,4,4,5,6]
 > 解释：链表数组如下：
 > [
-> 1->4->5,
-> 1->3->4,
-> 2->6
+>   1->4->5,
+>   1->3->4,
+>   2->6
 > ]
 > 将它们合并到一个有序链表中得到。
 > 1->1->2->3->4->4->5->6
@@ -2524,7 +2524,7 @@ class Solution {
 > 输出：[]
 > ```
 >
-> 
+>  
 >
 > **提示：**
 >
@@ -2585,7 +2585,7 @@ class Solution {
 >
 > 函数 `get` 和 `put` 必须以 `O(1)` 的平均时间复杂度运行。
 >
-> 
+>  
 >
 > **示例：**
 >
@@ -2609,7 +2609,7 @@ class Solution {
 > lRUCache.get(4);    // 返回 4
 > ```
 >
-> 
+>  
 >
 > **提示：**
 >
@@ -2733,6 +2733,1754 @@ class Solution {
 // 错误代码：
 // if(a!=b)    return false; // 不能直接用==比较，而是比较val
 // if(a==null) return true;
+```
+
+### 二叉树的直径（简单）
+
+> [543. 二叉树的直径 - 力扣（LeetCode）](https://leetcode.cn/problems/diameter-of-binary-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一棵二叉树的根节点，返回该树的 **直径** 。
+>
+> 二叉树的 **直径** 是指树中任意两个节点之间最长路径的 **长度** 。这条路径可能经过也可能不经过根节点 `root` 。
+>
+> 两节点之间路径的 **长度** 由它们之间边数表示。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/diamtree.jpg)
+>
+> ```
+> 输入：root = [1,2,3,4,5]
+> 输出：3
+> 解释：3 ，取路径 [4,2,1,3] 或 [5,2,1,3] 的长度。
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：root = [1,2]
+> 输出：1
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目在范围 `[1, 104]` 内
+> - `-100 <= Node.val <= 100`
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+class Solution {
+    private int res=Integer.MIN_VALUE;
+
+    public int diameterOfBinaryTree(TreeNode root) {
+        dfs(root);
+        return res;
+    }
+
+    private int dfs(TreeNode node){
+        // 返回以node为顶点的结点深度
+        if(node==null)  return 0;
+        int lLen = dfs(node.left); // 以node.left为顶点的结点深度=以node为顶点的左链最大长度（多了一个node，多加了一条边）
+        int rLen = dfs(node.right);
+        res = Math.max(res, lLen+rLen);  
+        return Math.max(lLen,rLen) + 1;
+    }
+}
+```
+
+### *二叉树的层序遍历（中等）
+
+> [102. 二叉树的层序遍历 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-level-order-traversal/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你二叉树的根节点 `root` ，返回其节点值的 **层序遍历** 。 （即逐层地，从左到右访问所有节点）。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/tree1.jpg)
+>
+> ```
+> 输入：root = [3,9,20,null,null,15,7]
+> 输出：[[3],[9,20],[15,7]]
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：root = [1]
+> 输出：[[1]]
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：root = []
+> 输出：[]
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目在范围 `[0, 2000]` 内
+> - `-1000 <= Node.val <= 1000`
+
+
+
+#### 方法一：记录每一层的节点数量
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if(root == null)    return res;
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        while( !queue.isEmpty() ){
+            int levelSize = queue.size(); // 关键：记录当前层的节点数
+            List<Integer> levelList = new ArrayList<>();
+            for(int i=0; i<levelSize; i++){
+                TreeNode node = queue.poll();
+                levelList.add(node.val);
+                if(node.left!=null) queue.offer(node.left);
+                if(node.right!=null) queue.offer(node.right);
+            }
+            res.add(levelList);  // 当前层处理完毕，加入结果
+        }
+        return res;
+
+    }
+}
+```
+
+#### 方法二：记录当前层和下一层的节点
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+        TreeNode curRight, nextRight;
+        List<List<Integer>> res = new ArrayList<>();
+        if(root==null)  return res;
+        curRight = root;
+        nextRight = root; // 只是为了初始化nextRight，无意义
+        queue.offer(root);
+
+        List<Integer> list = new ArrayList<>();
+        while(!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            list.add(node.val);
+            if(node.left!=null) {queue.offer(node.left); nextRight = node.left;}
+            if(node.right!=null)    {queue.offer(node.right);  nextRight = node.right;}
+
+            // 已经遍历到当前层最后一个结点
+            if(node==curRight){
+                res.add(list);
+                list = new ArrayList<>();
+                curRight = nextRight;
+            }
+        }
+        return res;
+    }
+}
+```
+
+### *有序数组转化为二叉搜索树（简单）
+
+> [108. 将有序数组转换为二叉搜索树 - 力扣（LeetCode）](https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个整数数组 `nums` ，其中元素已经按 **升序** 排列，请你将其转换为一棵 平衡 二叉搜索树。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/btree1.jpg)
+>
+> ```
+> 输入：nums = [-10,-3,0,5,9]
+> 输出：[0,-3,9,-10,null,5]
+> 解释：[0,-10,5,null,-3,null,9] 也将被视为正确答案：
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/btree.jpg)
+>
+> ```
+> 输入：nums = [1,3]
+> 输出：[3,1]
+> 解释：[1,null,3] 和 [3,1] 都是高度平衡二叉搜索树。
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= nums.length <= 104`
+> - `-104 <= nums[i] <= 104`
+> - `nums` 按 **严格递增** 顺序排列
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode sortedArrayToBST(int[] nums) {
+        // 将有序数组的中间结点作为根节点，两边作为左右子树递归
+        int n = nums.length;
+        int mid = n/2;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sortedNode(nums, 0, mid-1);
+        root.right = sortedNode(nums, mid+1, n-1);
+        return root;
+    }
+
+    private TreeNode sortedNode(int[] nums, int start, int end){
+        if(start > end) return null;
+        int mid = (start+end)>>1;
+        TreeNode root = new TreeNode(nums[mid]);
+        root.left = sortedNode(nums, start, mid-1);
+        root.right = sortedNode(nums, mid+1, end);
+        return root;
+    }
+}
+```
+
+### 验证二叉搜索树（中等）
+
+> [98. 验证二叉搜索树 - 力扣（LeetCode）](https://leetcode.cn/problems/validate-binary-search-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个二叉树的根节点 `root` ，判断其是否是一个有效的二叉搜索树。
+>
+> **有效** 二叉搜索树定义如下：
+>
+> - 节点的左子树只包含 **严格小于** 当前节点的数。
+> - 节点的右子树只包含 **严格大于** 当前节点的数。
+> - 所有左子树和右子树自身必须也是二叉搜索树。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/tree1-1774445533798-5.jpg)
+>
+> ```
+> 输入：root = [2,1,3]
+> 输出：true
+> ```
+>
+> **示例 2：**
+>
+> ![img](https://assets.leetcode.com/uploads/2020/12/01/tree2.jpg)
+>
+> ```
+> 输入：root = [5,1,4,null,null,3,6]
+> 输出：false
+> 解释：根节点的值是 5 ，但是右子节点的值是 4 。
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目范围在`[1, 104]` 内
+> - `-231 <`
+> - `= Node.val <= 231 - 1`
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private long pre = Long.MIN_VALUE;  // 中序遍历的前驱（测试用例有一个值是-2^31，卡Integer的边界，不能用Integer.MIN_VALUE）
+    boolean flag = true;
+
+    public boolean isValidBST(TreeNode root) {
+        // 中序遍历并判断每个结点是否比前驱大
+        if(root==null)  return true;
+        if( !isValidBST(root.left)){
+            // 左
+            return false;
+        }
+        if(root.val<=pre){ // 中
+            return false;
+        }
+        pre = root.val;
+        return isValidBST(root.right); // 右
+    }
+
+    // private void midOrder(TreeNode root){
+    //     // 中序遍历
+    //     if(root==null) return;
+    //     midOrder(root.left);
+    //     if(pre >= root.val){
+    //         flag = false;
+    //         return;
+    //     }
+    //     pre = root.val;
+    //     midOrder(root.right);
+    // }
+}
+```
+
+### *二叉搜索树中第K小的元素（中等）
+
+> [230. 二叉搜索树中第 K 小的元素 - 力扣（LeetCode）](https://leetcode.cn/problems/kth-smallest-element-in-a-bst/submissions/687016784/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个二叉搜索树的根节点 `root` ，和一个整数 `k` ，请你设计一个算法查找其中第 `k` 小的元素（`k` 从 1 开始计数）。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/kthtree1.jpg)
+>
+> ```
+> 输入：root = [3,1,4,null,2], k = 1
+> 输出：1
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/kthtree2.jpg)
+>
+> ```
+> 输入：root = [5,3,6,2,4,null,null,1], k = 3
+> 输出：3
+> ```
+>
+>  
+>
+>  
+>
+> **提示：**
+>
+> - 树中的节点数为 `n` 。
+> - `1 <= k <= n <= 104`
+> - `0 <= Node.val <= 104`
+>
+>  
+>
+> **进阶：**如果二叉搜索树经常被修改（插入/删除操作）并且你需要频繁地查找第 `k` 小的值，你将如何优化算法？
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int count = 0;
+
+    public int kthSmallest(TreeNode root, int k) {
+        if(root==null)  return -1;
+        int left = kthSmallest(root.left, k);
+        if(left>=0) return left;
+
+        count++;
+        if(count==k){
+            return root.val;
+        }
+        return kthSmallest(root.right, k);
+
+    }
+
+}
+```
+
+### *二叉树的右视图（中等）
+
+> [199. 二叉树的右视图 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-right-side-view/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个二叉树的 **根节点** `root`，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+>
+>  
+>
+> **示例 1：**
+>
+> **输入：**root = [1,2,3,null,5,null,4]
+>
+> **输出：**[1,3,4]
+>
+> **解释：**
+>
+> ![img](./images/tmpd5jn43fs-1.png)
+>
+> **示例 2：**
+>
+> **输入：**root = [1,2,3,4,null,null,null,5]
+>
+> **输出：**[1,3,4,5]
+>
+> **解释：**
+>
+> ![img](./images/tmpkpe40xeh-1.png)
+>
+> **示例 3：**
+>
+> **输入：**root = [1,null,3]
+>
+> **输出：**[1,3]
+>
+> **示例 4：**
+>
+> **输入：**root = []
+>
+> **输出：**[]
+>
+>  
+>
+> **提示:**
+>
+> - 二叉树的节点个数的范围是 `[0,100]`
+> - `-100 <= Node.val <= 100` 
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private List<Integer> list = new ArrayList<>();
+
+    public List<Integer> rightSideView(TreeNode root) {
+        dfs(root, 1);
+        return list;
+    }
+
+    private void dfs(TreeNode root, int depth){
+        if(root==null)  return;
+        if(list.size() < depth) list.add(root.val);
+        dfs(root.right, depth+1);
+        dfs(root.left, depth+1);
+    }
+
+}
+```
+
+### *二叉树展开为链表
+
+> [114. 二叉树展开为链表 - 力扣（LeetCode）](https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你二叉树的根结点 `root` ，请你将它展开为一个单链表：
+>
+> - 展开后的单链表应该同样使用 `TreeNode` ，其中 `right` 子指针指向链表中下一个结点，而左子指针始终为 `null` 。
+> - 展开后的单链表应该与二叉树 [**先序遍历**](https://baike.baidu.com/item/先序遍历/6442839?fr=aladdin) 顺序相同。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/flaten.jpg)
+>
+> ```
+> 输入：root = [1,2,5,3,4,null,6]
+> 输出：[1,null,2,null,3,null,4,null,5,null,6]
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：root = []
+> 输出：[]
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：root = [0]
+> 输出：[0]
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中结点数在范围 `[0, 2000]` 内
+> - `-100 <= Node.val <= 100`
+>
+>  **进阶：**你可以使用原地算法（`O(1)` 额外空间）展开这棵树吗？
+
+#### 方法一：队列存储元素
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    // 使用队列存储结点顺序
+    Queue<TreeNode> queue = new LinkedList<>();
+    public void flatten(TreeNode root) {
+        preOrder(root);
+        TreeNode pre, dummy = new TreeNode(-1);
+        pre = dummy;
+        while(!queue.isEmpty()){
+            TreeNode curr = queue.poll();
+            pre.left = null;
+            pre.right = curr;
+            pre = curr;
+        }
+        pre.left=null;pre.right=null;
+
+    }
+
+    private void preOrder(TreeNode root){
+        if(root==null){
+            return;
+        }
+        queue.offer(root);
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+
+}
+```
+
+#### 方法二：头插法
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private TreeNode head;
+    // 按照右子树 - 左子树 - 根的顺序 DFS 这棵树。
+    public void flatten(TreeNode root) {
+        if(root==null)  return;
+        flatten(root.right);
+        flatten(root.left);
+        root.left = null; 
+        root.right = head;  // 头插法，相当于链表的 root.next = head
+        head = root;  // 现在链表头节点是 root
+    }
+
+}
+```
+
+### x从前序遍与中序遍历序列构造二叉树（中等）
+
+> [105. 从前序与中序遍历序列构造二叉树 - 力扣（LeetCode）](https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定两个整数数组 `preorder` 和 `inorder` ，其中 `preorder` 是二叉树的**先序遍历**， `inorder` 是同一棵树的**中序遍历**，请构造二叉树并返回其根节点。
+>
+> 
+>
+> **示例 1:**
+>
+> ![imags](./images/tree.jpg)
+>
+> 
+>
+> ```
+> 输入: preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]
+> 输出: [3,9,20,null,null,15,7]
+> ```
+>
+> **示例 2:**
+>
+> ```
+> 输入: preorder = [-1], inorder = [-1]
+> 输出: [-1]
+> ```
+>
+> 
+>
+> **提示:**
+>
+> - `1 <= preorder.length <= 3000`
+> - `inorder.length == preorder.length`
+> - `-3000 <= preorder[i], inorder[i] <= 3000`
+> - `preorder` 和 `inorder` 均 **无重复** 元素
+> - `inorder` 均出现在 `preorder`
+> - `preorder` **保证** 为二叉树的前序遍历序列
+> - `inorder` **保证** 为二叉树的中序遍历序列
+
+
+
+> 根据两个数组确定根节点和左右子树
+> https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/solutions/107105/dong-hua-yan-shi-105-cong-qian-xu-yu-zhong-xu-bian/?envType=study-plan-v2&envId=top-100-liked
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        if(preorder.length==0 || inorder.length==0) return null;
+
+        // 根据前序数组的第一个元素，可以确定根节点
+        TreeNode root = new TreeNode(preorder[0]);
+        for(int i=0; i<preorder.length; i++){
+            // 用preorder[0]去中序数组查找对应元素
+            if(preorder[0] == inorder[i]){
+                // 将前序数组分成左右两半，再将中序数组分成左右两半
+                int[] pre_left = Arrays.copyOfRange(preorder,1,i+1); //右开
+                int[] pre_right = Arrays.copyOfRange(preorder, i+1, preorder.length);
+                int[] in_left = Arrays.copyOfRange(inorder, 0,i);  // 索引边界一定要注意
+                int[] in_right = Arrays.copyOfRange(inorder, i+1, inorder.length);
+                root.left = buildTree(pre_left, in_left);
+                root.right = buildTree(pre_right, in_right);
+                break;  // 别忘了break
+            }
+        }
+        return root;
+    }
+}
+
+/*
+Arrays.copyOfRange 这个方法永远不会返回 null：
+截取范围合法 → 返回新数组
+截取范围为空（比如从 0 到 0）→ 返回长度为 0 的空数组，不是 null
+所以递归传入的永远是数组对象，不可能是 null。
+*/
+```
+
+### x路径总和III（中等）
+
+> [437. 路径总和 III - 力扣（LeetCode）](https://leetcode.cn/problems/path-sum-iii/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个二叉树的根节点 `root` ，和一个整数 `targetSum` ，求该二叉树里节点值之和等于 `targetSum` 的 **路径** 的数目。
+>
+> **路径** 不需要从根节点开始，也不需要在叶子节点结束，但是路径方向必须是向下的（只能从父节点到子节点）。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/pathsum3-1-tree.jpg)
+>
+> ```
+> 输入：root = [10,5,-3,3,2,null,11,3,-2,null,1], targetSum = 8
+> 输出：3
+> 解释：和等于 8 的路径有 3 条，如图所示。
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：root = [5,4,8,11,null,13,4,7,2,null,null,5,1], targetSum = 22
+> 输出：3
+> ```
+>
+>  
+>
+> **提示:**
+>
+> - 二叉树的节点个数的范围是 `[0,1000]`
+> - `-109 <= Node.val <= 109` 
+> - `-1000 <= targetSum <= 1000`
+
+
+
+> 如果二叉树是一条链，本题就和 560. 和为 K 的子数组 完全一样了：统计有多少个非空连续子数组的元素和恰好等于 targetSum。所以你必须先弄明白 560 题（特殊情况），再来做本题（一般情况）。560 题的做法见 我的题解。
+>
+> 这两题的联系如下：
+>
+> ![image-20260411150046756](./images/image-20260411150046756.png)
+>
+> 我们要解决的问题是：DFS 遍历这棵树，遍历到节点 node 时，假设 node 是路径的终点，那么有多少个起点，满足起点到终点 node 的路径总和恰好等于 targetSum？
+>
+> 和 560 题一样的套路：一边遍历二叉树，一边用哈希表 cnt 统计前缀和（从根节点开始的路径和）的出现次数。设从根到终点 node 的路径和为 s，那么起点的个数就是 cnt[s−targetSum]，加入答案。对比 560 题，我们在枚举子数组的右端点（终点），统计有多少个左端点（起点），做法完全一致。
+>
+> 作者：灵茶山艾府
+> 链接：https://leetcode.cn/problems/path-sum-iii/solutions/2784856/zuo-fa-he-560-ti-shi-yi-yang-de-pythonja-fmzo/
+> 来源：力扣（LeetCode）
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int res;
+    public int pathSum(TreeNode root, int targetSum) {
+        // key: 从根到node的结点值之和
+        // value: 结点之和出现的次数
+        Map<Long, Integer> cnt = new HashMap<>(); // 只保留根到node的路径的前缀的结点之和
+        cnt.put(0L, 1);
+        dfs(root, 0, targetSum, cnt);
+        return res;
+    }
+
+    // s表示根到node的父节点（不包括node）的节点值之和
+    private void dfs(TreeNode node, long s, int targetSum, Map<Long, Integer> cnt){
+        if(node==null)  return;
+        s+=node.val;
+        // 把node当做路径的终点，统计有多少个起点
+        //当前前缀和已知s，判断是否含有s-targetSum的前缀和，如果有，那么前缀和之后的部分到当前节点这一区间的和就为 targetSum 了
+        res += cnt.getOrDefault(s-targetSum,0);
+        cnt.merge(s, 1, Integer::sum);  //cnt[s]++
+        dfs(node.left, s, targetSum, cnt);
+        dfs(node.right,s ,targetSum, cnt);
+        cnt.merge(s, -1, Integer::sum); //cnt[s]--
+    }
+}
+```
+
+
+
+### x二叉树的最近公共祖先（中等）
+
+> [236. 二叉树的最近公共祖先 - 力扣（LeetCode）](https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个二叉树, 找到该树中两个指定节点的最近公共祖先。
+>
+> [百度百科](https://baike.baidu.com/item/最近公共祖先/8918834?fr=aladdin)中最近公共祖先的定义为：“对于有根树 T 的两个节点 p、q，最近公共祖先表示为一个节点 x，满足 x 是 p、q 的祖先且 x 的深度尽可能大（**一个节点也可以是它自己的祖先**）。”
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/binarytree.png)
+>
+> ```
+> 输入：root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1
+> 输出：3
+> 解释：节点 5 和节点 1 的最近公共祖先是节点 3 。
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/binarytree.png)
+>
+> ```
+> 输入：root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4
+> 输出：5
+> 解释：节点 5 和节点 4 的最近公共祖先是节点 5 。因为根据定义最近公共祖先节点可以为节点本身。
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：root = [1,2], p = 1, q = 2
+> 输出：1
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目在范围 `[2, 105]` 内。
+> - `-109 <= Node.val <= 109`
+> - 所有 `Node.val` `互不相同` 。
+> - `p != q`
+> - `p` 和 `q` 均存在于给定的二叉树中。
+
+#### 方法一：递归
+
+```java
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    /*
+    root和p、q有以下几种关系：
+    1. root是p或者q，那么root就是p, q的最近公共祖先
+    2. root不是p或q，且p、q在root的同侧（同左边或同右边），那么继续往下递归，根节点变为root的左孩子或右孩子
+    3. root不是p或q，且p、q在root的异侧，那么root就是他们的最近公共祖先
+    
+     */
+
+
+    //定义函数功能：在以root为根的树里找 p 和 q 
+    // 1. p q都能找到 返回最近公共祖先 2. p q 找到一个，返回找到的那个节点 3. 都没找到 返回null
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        //只要当前根节点是p和q中的任意一个，就返回（因为不能比这个更深了，再深p和q中的一个就没了
+        if(root==null || root==p || root==q)    return root;
+
+        // 根节点不是p和q的任意一个，就继续分别往左子树和右子树找p或q
+        TreeNode left = lowestCommonAncestor(root.left, p, q); 
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        //p和q都没找到，那就没有
+        if(left==null && right==null){
+            return null;
+        }
+        //左子树没有p也没有q，但右子树起码有一个就返回右子树的结果
+        if(left==null){
+            return right;
+        }
+        if(right==null){
+            return left;
+        }
+        //左右子树都找到p和q了，那就说明p和q分别在左右两个子树上，所以此时的最近公共祖先就是root
+        return root;
+
+
+
+    }
+}
+```
+
+#### 方法二：存储父节点
+
+> 思路
+>
+> 我们可以用哈希表存储所有节点的父节点，然后我们就可以利用节点的父节点信息从 p 结点开始不断往上跳，并记录已经访问过的节点，再从 q 节点开始不断往上跳，如果碰到已经访问过的节点，那么这个节点就是我们要找的最近公共祖先。
+>
+> 算法
+>
+> 从根节点开始遍历整棵二叉树，用哈希表记录每个节点的父节点指针。
+> 从 p 节点开始不断往它的祖先移动，并用数据结构记录已经访问过的祖先节点。
+> 同样，我们再从 q 节点开始不断往它的祖先移动，如果有祖先已经被访问过，即意味着这是 p 和 q 的深度最深的公共祖先，即 LCA 节点。
+>
+> 作者：力扣官方题解
+> 链接：https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solutions/238552/er-cha-shu-de-zui-jin-gong-gong-zu-xian-by-leetc-2/
+> 来源：力扣（LeetCode）
+> 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+```java
+class Solution {
+    Map<Integer, TreeNode> parent = new HashMap<Integer, TreeNode>();
+    Set<Integer> visited = new HashSet<Integer>();
+
+    public void dfs(TreeNode root) {
+        if (root.left != null) {
+            parent.put(root.left.val, root);
+            dfs(root.left);
+        }
+        if (root.right != null) {
+            parent.put(root.right.val, root);
+            dfs(root.right);
+        }
+    }
+
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        dfs(root);
+        while (p != null) {
+            visited.add(p.val);
+            p = parent.get(p.val);
+        }
+        while (q != null) {
+            if (visited.contains(q.val)) {
+                return q;
+            }
+            q = parent.get(q.val);
+        }
+        return null;
+    }
+}
+
+作者：力扣官方题解
+链接：https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/solutions/238552/er-cha-shu-de-zui-jin-gong-gong-zu-xian-by-leetc-2/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+```
+
+### 二叉树的最大路径和（困难）
+
+> [124. 二叉树中的最大路径和 - 力扣（LeetCode）](https://leetcode.cn/problems/binary-tree-maximum-path-sum/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 二叉树中的 **路径** 被定义为一条节点序列，序列中每对相邻节点之间都存在一条边。同一个节点在一条路径序列中 **至多出现一次** 。该路径 **至少包含一个** 节点，且不一定经过根节点。
+>
+> **路径和** 是路径中各节点值的总和。
+>
+> 给你一个二叉树的根节点 `root` ，返回其 **最大路径和** 。
+>
+>  
+>
+> **示例 1：**
+>
+> ![img](./images/exx1.jpg)
+>
+> ```
+> 输入：root = [1,2,3]
+> 输出：6
+> 解释：最优路径是 2 -> 1 -> 3 ，路径和为 2 + 1 + 3 = 6
+> ```
+>
+> **示例 2：**
+>
+> ![img](./images/exx2.jpg)
+>
+> ```
+> 输入：root = [-10,9,20,null,null,15,7]
+> 输出：42
+> 解释：最优路径是 15 -> 20 -> 7 ，路径和为 15 + 20 + 7 = 42
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - 树中节点数目范围是 `[1, 3 * 104]`
+> - `-1000 <= Node.val <= 1000`
+
+```java
+写法一：
+    /**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    private int res = Integer.MIN_VALUE;
+
+    public int maxPathSum(TreeNode root) {
+        dfs(root);
+        return res;
+    }
+
+    // 返回以node为顶点的链的最大结点和（若最大和<0，则返回0）
+    private int dfs(TreeNode node){
+        if(node==null)  return 0;
+        int lVal= dfs(node.left); // 左子树链最大结点和
+        int rVal = dfs(node.right);
+        res = Math.max(res, lVal+rVal+node.val);  // 两条链拼成路径
+        return Math.max( Math.max(lVal,rVal)+node.val, 0);
+    }
+}
+
+写法二：
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+class Solution {
+    int res = Integer.MIN_VALUE;
+    public int maxPathSum(TreeNode root) {
+        if(root==null)  return 0;
+        int len = root.val+dfs(root.left)+dfs(root.right);
+        res = Math.max(res, len);
+        maxPathSum(root.left);
+        maxPathSum(root.right);
+        return res;
+    }
+
+
+    // 返回以node为根的最长单链长度
+    private int dfs(TreeNode node){
+        if(node == null)    return 0;
+        return Math.max(node.val + Math.max(dfs(node.left), dfs(node.right)),0);
+    }
+}
+```
+
+## 图论
+
+### *岛屿数量（中等）
+
+> [200. 岛屿数量 - 力扣（LeetCode）](https://leetcode.cn/problems/number-of-islands/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个由 `'1'`（陆地）和 `'0'`（水）组成的的二维网格，请你计算网格中岛屿的数量。
+>
+> 岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+>
+> 此外，你可以假设该网格的四条边均被水包围。
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：grid = [
+>   ['1','1','1','1','0'],
+>   ['1','1','0','1','0'],
+>   ['1','1','0','0','0'],
+>   ['0','0','0','0','0']
+> ]
+> 输出：1
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：grid = [
+>   ['1','1','0','0','0'],
+>   ['1','1','0','0','0'],
+>   ['0','0','1','0','0'],
+>   ['0','0','0','1','1']
+> ]
+> 输出：3
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `m == grid.length`
+> - `n == grid[i].length`
+> - `1 <= m, n <= 300`
+> - `grid[i][j]` 的值为 `'0'` 或 `'1'`
+>
+> 
+
+```java
+class Solution {
+    public int numIslands(char[][] grid) {
+        int m = grid.length, n=grid[0].length;
+        int count = 0;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j]=='1'){
+                    // 找到一块陆地，dfs将整块陆地打标记（grid对应位置置为0）
+                    dfs(grid, i, j);
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    private void dfs(char[][] grid, int i, int j){
+        // 如果该位置出界，就结束递归
+        if(i<0 || i>=grid.length || j<0 || j>=grid[0].length || grid[i][j] != '1')    return;
+        // 标记该位置已访问，继续dfs
+        grid[i][j] = '0';
+        dfs(grid, i-1,j);
+        dfs(grid, i+1, j);
+        dfs(grid, i, j-1);
+        dfs(grid, i, j+1);
+    }
+}
+```
+
+### 腐烂的橘子（中等）
+
+> [994. 腐烂的橘子 - 力扣（LeetCode）](https://leetcode.cn/problems/rotting-oranges/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 在给定的 `m x n` 网格 `grid` 中，每个单元格可以有以下三个值之一：
+>
+> - 值 `0` 代表空单元格；
+> - 值 `1` 代表新鲜橘子；
+> - 值 `2` 代表腐烂的橘子。
+>
+> 每分钟，腐烂的橘子 **周围 4 个方向上相邻** 的新鲜橘子都会腐烂。
+>
+> 返回 *直到单元格中没有新鲜橘子为止所必须经过的最小分钟数。如果不可能，返回 `-1`* 。
+>
+>  
+>
+> **示例 1：**
+>
+> **![img](./images/oranges.png)**
+>
+> ```
+> 输入：grid = [[2,1,1],[1,1,0],[0,1,1]]
+> 输出：4
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：grid = [[2,1,1],[0,1,1],[1,0,1]]
+> 输出：-1
+> 解释：左下角的橘子（第 2 行， 第 0 列）永远不会腐烂，因为腐烂只会发生在 4 个方向上。
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：grid = [[0,2]]
+> 输出：0
+> 解释：因为 0 分钟时已经没有新鲜橘子了，所以答案就是 0 。
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `m == grid.length`
+> - `n == grid[i].length`
+> - `1 <= m, n <= 10`
+> - `grid[i][j]` 仅为 `0`、`1` 或 `2`
+
+```java
+class Solution {
+
+    public int orangesRotting(int[][] grid) {
+        int countFresh = 0;  // 新鲜橘子的个数
+        int[][] dir = { {-1,0}, {1,0}, {0,-1},{0,1}};  // 四个方向
+        Queue<int[]> queue = new LinkedList<>(); // 每一分钟新增的腐烂橘子的位置
+        int mins = 0;
+        int m = grid.length, n = grid[0].length;
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j] == 1){
+                    // 找到新鲜橘子
+                    countFresh++;
+                }
+                if(grid[i][j] == 2){
+                    queue.offer(new int[]{i,j});
+                }
+            }
+        }
+        //if(queue.isEmpty() && countFresh>0)   return -1; 
+        //if(queue.isEmpty() && countFresh==0)    return 0; // 忘记这一条件了
+
+        while(countFresh>0 && !queue.isEmpty()){
+            mins++;
+            int size = queue.size();
+            for(int i=0; i<size; i++){
+                // 遍历上一分钟所有腐烂的橘子
+                int[] node = queue.poll();
+                for(int j=0; j<4; j++){
+                    int nextI = node[0]+dir[j][0], nextJ = node[1]+dir[j][1];
+                    if(nextI>=0 && nextI<m && nextJ>=0 && nextJ<n && grid[nextI][nextJ]==1){
+                        grid[nextI][nextJ]=2;  // 橘子腐烂
+                        countFresh--;
+                        queue.offer(new int[]{nextI, nextJ});
+                    }
+                }
+            }
+        }
+
+        if(countFresh>0){
+            return -1;
+        }else{
+            return mins;
+        }
+        
+    }
+}
+
+
+// 第二次练习题解
+class Solution {
+    int count = 0;
+    int[][] dir = { {-1,0,1,0}, {0,1,0,-1}};
+    public int orangesRotting(int[][] grid) {
+        int m = grid.length, n = grid[0].length;
+        int sum=0; // 新鲜橘子个数
+        Queue<int[]> queue = new LinkedList<>();
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j] == 1 ){
+                    sum++;
+                }
+                else if(grid[i][j]==2){
+                    queue.add(new int[]{i,j});
+                }
+            }
+        }
+        if(sum==0)  return 0;
+        while(!queue.isEmpty()){
+            count++;
+            int size = queue.size();
+            for(int p=0; p<size; p++){
+                int[] cor = queue.poll();
+                int i = cor[0],j = cor[1];
+                for(int k=0; k<4; k++){
+                    int row = i+dir[0][k];
+                    int col = j+dir[1][k];
+                    if(row<0 || row>=m || col <0 || col>=n) continue;
+                    else if(grid[row][col]==1){
+                        grid[row][col] = 2;
+                        queue.offer(new int[]{row, col});
+                    }
+                }
+            }
+        }
+        for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                if(grid[i][j] == 1 ){
+                    return -1;
+                } 
+            }
+        }
+        return count-1;
+    }
+}
+```
+
+### 课程表
+
+> [207. 课程表 - 力扣（LeetCode）](https://leetcode.cn/problems/course-schedule/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 你这个学期必须选修 `numCourses` 门课程，记为 `0` 到 `numCourses - 1` 。
+>
+> 在选修某些课程之前需要一些先修课程。 先修课程按数组 `prerequisites` 给出，其中 `prerequisites[i] = [ai, bi]` ，表示如果要学习课程 `ai` 则 **必须** 先学习课程 `bi` 。
+>
+> - 例如，先修课程对 `[0, 1]` 表示：想要学习课程 `0` ，你需要先完成课程 `1` 。
+>
+> 请你判断是否可能完成所有课程的学习？如果可以，返回 `true` ；否则，返回 `false` 。
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：numCourses = 2, prerequisites = [[1,0]]
+> 输出：true
+> 解释：总共有 2 门课程。学习课程 1 之前，你需要完成课程 0 。这是可能的。
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：numCourses = 2, prerequisites = [[1,0],[0,1]]
+> 输出：false
+> 解释：总共有 2 门课程。学习课程 1 之前，你需要先完成课程 0 ；并且学习课程 0 之前，你还应先完成课程 1 。这是不可能的。
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= numCourses <= 2000`
+> - `0 <= prerequisites.length <= 5000`
+> - `prerequisites[i].length == 2`
+> - `0 <= ai, bi < numCourses`
+> - `prerequisites[i]` 中的所有课程对 **互不相同**
+
+
+
+```java
+class Solution {
+    // 拓扑排序问题
+    public boolean canFinish(int numCourses, int[][] prerequisites) {
+        // 入度数组，记录每门课程的入度
+        int[] inDegree = new int[numCourses];
+        // 邻接表，用于存储每门课程的后续课程
+        List<List<Integer>> adjList = new ArrayList<>(); // List<Integer>[] adjList = new ArrayList[numCourses];
+        for(int i=0; i<numCourses; i++){
+            adjList.add(new ArrayList<>());
+        }
+        // 计算每门课程的入度，并构建邻接表
+        for(int[] prerequisite: prerequisites){
+            int course = prerequisite[0], preCourse=prerequisite[1]; // 课程及前置课程
+            inDegree[course]++;
+            adjList.get(preCourse).add(course);
+        }
+
+        // 存储入度为0的课程队列
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i=0; i<numCourses; i++){
+            if(inDegree[i]==0){
+                queue.offer(i);
+            }
+        }
+        int count = 0;
+        while(!queue.isEmpty()){
+            int course = queue.poll();  // 可完成的课程
+            count++;
+            //获取当前课程后续课程列表
+            List<Integer> nextCourses = adjList.get(course);
+            for(int nextCourse: nextCourses){
+                inDegree[nextCourse]--;
+                if(inDegree[nextCourse]==0){
+                    queue.offer(nextCourse);
+                }
+            }
+        }
+
+        return count==numCourses;
+    }
+}
+```
+
+### x实现Trie（前缀树）
+
+> [208. 实现 Trie (前缀树) - 力扣（LeetCode）](https://leetcode.cn/problems/implement-trie-prefix-tree/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> **[Trie](https://baike.baidu.com/item/字典树/9825209?fr=aladdin)**（发音类似 "try"）或者说 **前缀树** 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补全和拼写检查。
+>
+> 请你实现 Trie 类：
+>
+> - `Trie()` 初始化前缀树对象。
+> - `void insert(String word)` 向前缀树中插入字符串 `word` 。
+> - `boolean search(String word)` 如果字符串 `word` 在前缀树中，返回 `true`（即，在检索之前已经插入）；否则，返回 `false` 。
+> - `boolean startsWith(String prefix)` 如果之前已经插入的字符串 `word` 的前缀之一为 `prefix` ，返回 `true` ；否则，返回 `false` 。
+>
+>  
+>
+> **示例：**
+>
+> ```
+> 输入
+> ["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
+> [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
+> 输出
+> [null, null, true, false, true, null, true]
+> 
+> 解释
+> Trie trie = new Trie();
+> trie.insert("apple");
+> trie.search("apple");   // 返回 True
+> trie.search("app");     // 返回 False
+> trie.startsWith("app"); // 返回 True
+> trie.insert("app");
+> trie.search("app");     // 返回 True
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= word.length, prefix.length <= 2000`
+> - `word` 和 `prefix` 仅由小写英文字母组成
+> - `insert`、`search` 和 `startsWith` 调用次数 **总计** 不超过 `3 * 104` 次
+
+```java
+class Trie {
+    /** 字典树根节点，不表示任何字符 */
+    private Node root;
+
+    public Trie() {
+        root = new Node();
+    }
+    
+    /**
+     * 插入一个单词到字典树中
+     *
+     * 插入过程：
+     * 1. 从根节点开始
+     * 2. 依次遍历 word 中的每个字符
+     * 3. 如果当前字符对应的子节点不存在，则创建
+     * 4. 沿着该字符对应的子节点向下移动
+     * 5. 单词遍历结束后，将最后一个节点标记为单词结尾
+     */
+    public void insert(String word) {
+        Node node = root;  
+        for(int i=0; i<word.length(); i++){
+            int index = word.charAt(i)-'a';
+            // 如果该字符对应的子节点尚未创建，则新建
+            if(node.children[index]==null){
+                node.children[index] = new Node();
+            }
+            // 移动到该字符对应的子节点
+            node = node.children[index];
+        }
+        node.isEnd = true;
+    }
+    
+    /**
+     * 判断字典树中是否存在完整单词 word
+     *
+     * 存在条件：
+     * 1. 能完整匹配 word 的所有字符
+     * 2. 最后一个字符所在的节点被标记为单词结尾
+     */
+    public boolean search(String word) {
+        Node node = searchPrefix(word);
+        return node!=null && node.isEnd;
+    }
+    
+    /**
+     * 判断是否存在以 prefix 为前缀的字符串
+     *
+     * 只需匹配 prefix 中的所有字符即可，
+     * 不要求最后一个节点是单词结尾
+     */
+    public boolean startsWith(String prefix) {
+        return searchPrefix(prefix) != null;
+    }
+
+    /**
+     * 查找前缀对应的最后一个节点
+     *
+     * @param prefix 要查找的前缀
+     * @return 如果前缀存在，返回对应节点；否则返回 null
+     */
+    private Node searchPrefix(String prefix){
+        Node node = root;
+
+        for(int i=0; i<prefix.length(); i++){
+            int index = prefix.charAt(i)-'a';
+            node = node.children[index];
+
+            // 若中途某个字符不存在，说明前缀不匹配
+            if(node==null){
+                return null;
+            }
+        }
+        return node;
+    }
+}
+
+/**
+ * 字典树节点
+ *
+ * 说明：
+ * - children 数组长度为 26，对应小写字母 a~z
+ * - 数组中某个位置不为 null，表示该字符的子节点存在
+ * - 并不是每一层都创建 26 个节点，而是按需创建
+ * - isEnd 表示该节点是否为某个单词的结尾
+ */
+class Node{
+    Node[] children; // 子节点列表
+    boolean isEnd;
+
+    public Node(){
+        children = new Node[26];
+        isEnd = false;
+    }
+}
+
+/**
+ * Your Trie object will be instantiated and called as such:
+ * Trie obj = new Trie();
+ * obj.insert(word);
+ * boolean param_2 = obj.search(word);
+ * boolean param_3 = obj.startsWith(prefix);
+ */
+```
+
+
+
+## 回溯
+
+### *全排列
+
+> [46. 全排列 - 力扣（LeetCode）](https://leetcode.cn/problems/permutations/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个不含重复数字的数组 `nums` ，返回其 *所有可能的全排列* 。你可以 **按任意顺序** 返回答案。
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：nums = [1,2,3]
+> 输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：nums = [0,1]
+> 输出：[[0,1],[1,0]]
+> ```
+>
+> **示例 3：**
+>
+> ```
+> 输入：nums = [1]
+> 输出：[[1]]
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= nums.length <= 6`
+> - `-10 <= nums[i] <= 10`
+> - `nums` 中的所有整数 **互不相同**
+
+```java
+class Solution {
+    private List<List<Integer>> res = new ArrayList<>();
+    boolean[]  used;
+    public List<List<Integer>> permute(int[] nums) {
+        used = new boolean[nums.length];
+        backtrack(nums, new ArrayList<>());
+        return res;
+    }
+
+    // path长度替代深度，不需要再传参了
+    private void backtrack(int[] nums, List<Integer> path){
+        // 结束条件
+        if(path.size() == nums.length){
+            res.add(new ArrayList<>(path));  // 因为path始终是那一个，会在递归中被改变，所以需要重新开辟空间
+            return;
+        }
+        // 遍历选择列表
+        for(int i=0; i<nums.length; i++){
+            // 已经用过的数不能再用
+            if(used[i]) continue;
+            used[i] = true;
+            path.add(nums[i]);
+
+            // 递归
+            backtrack(nums, path);
+            // 撤销选择
+            path.remove(path.size()-1);
+            used[i] = false;
+        }
+    }
+}
+```
+
+### 子集
+
+> [78. 子集 - 力扣（LeetCode）](https://leetcode.cn/problems/subsets/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。
+>
+> 解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：nums = [1,2,3]
+> 输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：nums = [0]
+> 输出：[[],[0]]
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= nums.length <= 10`
+> - `-10 <= nums[i] <= 10`
+> - `nums` 中的所有元素 **互不相同**
+
+```java
+// 卡了一会儿
+class Solution {
+    public List<List<Integer>> subsets(int[] nums) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> path = new ArrayList<>();
+        dfs(0, nums, path, res);
+        return res;
+    }
+
+    // 选或不选，讨论nums[i]是否加入path
+    private void dfs(int i, int[] nums, List<Integer> path, List<List<Integer>> res){
+        if(i==nums.length){
+            // 子集构造完毕
+            res.add(new ArrayList<>(path));  // 复制path
+            return;
+        }
+        // 不选nums[i]
+        dfs(i+1, nums, path, res); // 考虑下一个数 nums[i+1] 选或不选
+
+        // 选nums[i]
+        path.add(nums[i]);
+        dfs(i+1, nums, path, res); // 考虑下一个数 nums[i+1] 选或不选
+        path.removeLast(); // path.remove(path.size() - 1);
+    }
+}
+```
+
+### *电话号码的字母组合
+
+> [17. 电话号码的字母组合 - 力扣（LeetCode）](https://leetcode.cn/problems/letter-combinations-of-a-phone-number/description/?envType=study-plan-v2&envId=top-100-liked)
+>
+> 给定一个仅包含数字 `2-9` 的字符串，返回所有它能表示的字母组合。答案可以按 **任意顺序** 返回。
+>
+> 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
+>
+> ![img](./images/1752723054-mfIHZs-image.png)
+>
+>  
+>
+> **示例 1：**
+>
+> ```
+> 输入：digits = "23"
+> 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
+> ```
+>
+> **示例 2：**
+>
+> ```
+> 输入：digits = "2"
+> 输出：["a","b","c"]
+> ```
+>
+>  
+>
+> **提示：**
+>
+> - `1 <= digits.length <= 4`
+> - `digits[i]` 是范围 `['2', '9']` 的一个数字。
+
+```java
+class Solution {
+    String[] lists = {"", "", "abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+    List<String> result = new ArrayList<String>();
+
+    public List<String> letterCombinations(String digits) {
+        int n = digits.length();
+        StringBuilder sb = new StringBuilder();
+        backtrack(digits, sb, 0);
+        return result;
+    }
+
+    private void backtrack(String digits, StringBuilder sb, int depth){
+        if(depth==digits.length()){
+            result.add(sb.toString());
+            return;
+        }
+        int num = digits.charAt(depth) - '0';
+        String str = lists[num];
+        for(int i=0; i<str.length(); i++){
+            sb.append(str.charAt(i));
+            backtrack(digits, sb, depth+1);
+            sb.deleteCharAt(sb.length()-1);
+        }
+    }
+}
 ```
 
 
@@ -3052,4 +4800,135 @@ class Solution {
     }
 }
 ```
+
+
+
+# 其他
+
+## 数据类型
+
+### 基本数据类型大小
+
+| 类型      | 位数      | 最大值 (2 的次幂) | 最大值数值                    | 最大安全的 10 的次幂 | 备注                   |
+| --------- | --------- | ----------------- | ----------------------------- | -------------------- | ---------------------- |
+| **byte**  | 8 位      | 2^7−1             | 127                           | 10^2 (100)           | 很小，一般很少用       |
+| **short** | 16 位     | 2^15−1            | 32,767                        | 10^4 (10,000)        | 很小                   |
+| **int**   | **32 位** | **2^31−1**        | **2,147,483,647**             | **10^9** (10 亿)     | **最常用**，超过就溢出 |
+| **long**  | **64 位** | **2^63−1**        | **9,223,372,036,854,775,807** | **10^18** (1 百亿亿) | **处理大数必用**       |
+
+> ### 核心记忆口诀
+>
+> 1. **int 的极限**：
+>
+>    230≈109 （大约 10 亿）
+>
+>    *做题时看到数据范围 > \*109\*，毫不犹豫选 long。*
+>
+>    
+>
+> 2. **long 的极限**：
+>
+>    260≈1018 （大约 10 的 18 次方）
+>
+>    *这刚好对应题目里给的 \*1018\* 限制，所以 long 刚好装下。*
+>
+>    
+>
+> 3. **快速估算技巧**：
+>
+>    记住 210≈103 (一千)
+>
+>    所以 220≈106 (一百万)
+>
+>    230≈109 (十亿)
+
+## 输入输出
+
+### 输入
+
+#### 多行输入
+
+![image-20260408165824658](./images/image-20260408165824658.png)
+
+```java
+package stringTest2;
+
+import java.util.Scanner;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		sc.nextLine();
+		for(int i=0; i<n; i++) {
+			String line = sc.nextLine();
+			Scanner scInt = new Scanner(line);
+			long sum = 0;
+			while(scInt.hasNextInt()) {
+				sum += scInt.nextInt();
+			}
+			System.out.println(sum);
+		}
+		
+	}
+}
+
+```
+
+
+
+### 格式化输出
+
+| 变量类型     | 占位符 | 例子                                            |
+| ------------ | ------ | ----------------------------------------------- |
+| **int**      | **%d** | `int a = 10; System.out.printf("%d", a);`       |
+| **long**     | **%d** | `long b = 100L; System.out.printf("%d", b);`    |
+| float/double | **%f** | `double c = 3.14; System.out.printf("%f", c);`  |
+| String       | **%s** | `String s = "abc"; System.out.printf("%s", s);` |
+
+## 经典算法
+
+### 快速幂
+
+![image-20260408140848838](./images/image-20260408140848838.png)
+
+![image-20260408140910854](./images/image-20260408140910854.png)
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        // 计算 20^22 mod 7
+        long remainder = powMod(20, 22, 7);
+        
+        // 今天是周六，对应数字6
+        int today = 6;
+        // 计算最终星期：(6 + 余数 - 1) % 7 + 1，保证结果在1-7之间
+        int result = (today + (int)remainder - 1) % 7 + 1;
+        
+        System.out.println("20^22天后是星期：" + result);
+    }
+
+    /**
+     * 快速幂（模幂）算法：计算 (base^exponent) % mod
+     */
+    private static long powMod(long base, long exponent, long mod) {
+        long result = 1;
+        base = base % mod; // 先对底数取余，避免初始值过大
+        while (exponent > 0) {
+            // 如果当前指数是奇数，乘一次底数
+            if (exponent % 2 == 1) {
+                result = (result * base) % mod;
+            }
+            // 底数平方，指数减半
+            base = (base * base) % mod;
+            exponent = exponent / 2;
+        }
+        return result;
+    }
+}
+```
+
+
+
+### 字典序的下一个排列
 
